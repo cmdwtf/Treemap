@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
-    <PackageReleaseNotes>Embedded PDB, added docs to `.nupkg`.</PackageReleaseNotes>
-    <VersionPrefix>1.0.1</VersionPrefix>
+    <PackageReleaseNotes>Added generated documentation to build.</PackageReleaseNotes>
+    <VersionPrefix>1.0.2</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
   </PropertyGroup>
 </Project>
