@@ -1,0 +1,73 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- SDK Settings -->
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+
+    <!-- Build Settings -->
+    <Deterministic>true</Deterministic>
+    <LangVersion>preview</LangVersion>
+    <Nullable>enable</Nullable>
+
+    <!-- Core Project Settings -->
+    <RootNamespace>cmdwtf.Treemap</RootNamespace>
+    <AssemblyName>cmdwtf.Treemap</AssemblyName>
+    <Product>cmd.wtf Treemap</Product>
+    <Version>1.0.0</Version>
+
+    <!-- Core Project Information -->
+    <Authors>Chris Marc Dailey (nitz)</Authors>
+    <Copyright>© 2021 Chris Marc Dailey</Copyright>
+    <Company>cmd.wtf</Company>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/cmdwtf/Treemap</RepositoryUrl>
+
+    <!-- Editor Settings -->
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+
+    <!-- Package Settings -->
+    <Description>A Windows Forms control that can visualize flat or hierarchical data as a treemap, designed to be a pseudo drop-in replacement for System.Windows.Forms.TreeView.</Description>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageIcon>PackageIcon.png</PackageIcon>
+    <PackageId>$(AssemblyName)</PackageId>
+    <PackageLicenseExpression>AGPL-3.0-only</PackageLicenseExpression>
+    <PackageProjectUrl>https://cmd.wtf/projects/treemap</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>Initial release.</PackageReleaseNotes>
+    <PackageTags>treemap, winforms, usercontrol, controls, treeview, treemapview</PackageTags>
+    <Title>$(Product)</Title>
+
+    <!-- SourceLink & Package Symbols -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Example\**" />
+    <EmbeddedResource Remove="Example\**" />
+    <None Remove="Example\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="copyright" />
+    <None Remove="LICENSE" />
+    <None Remove="**\**.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="$(ProjectDir)..\.meta\$(PackageIcon)" Visible="false">
+      <PackagePath>.\</PackagePath>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="cmdwtf.Toolkit.WinForms" Version="0.26.0" />
+    <PackageReference Include="Lazy.Fody" Version="1.9.0" PrivateAssets="All" />
+    <PackageReference Include="MethodDecorator.Fody" Version="1.1.1" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
+</Project>
