@@ -34,6 +34,7 @@
     <PackageId>$(AssemblyName)</PackageId>
     <PackageLicenseExpression>AGPL-3.0-only</PackageLicenseExpression>
     <PackageProjectUrl>https://cmd.wtf/projects/treemap</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageTags>treemap;winforms;usercontrol;controls;treeview;treemapview</PackageTags>
     <Title>$(Product)</Title>
