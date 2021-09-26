@@ -13,6 +13,10 @@ Files: Example/*
 Copyright: 2021, Chris Marc Dailey
 License: MIT
 
+Files: Example/Resources/*.png
+Copyright: 2010, Dale Morrell
+License: spirit20-bespoke
+
 Files: Example/SampleData.cs
 Copyright: 2021, Chris Marc Dailey
 Copyright: 2013, Sencha Inc., Nicolas Garcia Belmonte
@@ -699,6 +703,11 @@ License: MIT
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
+
+License: spirit20-bespoke
+ spirit20 consists of almost 500 transparent PNGs at 20×20 pixels, and is
+ completely free to use for both personal and commercial projects.
+ No attribution is required.
 
 License: None
  No license available. All rights are reserved.
