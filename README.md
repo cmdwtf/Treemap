@@ -1,3 +1,5 @@
+![header](./.meta/header.png)
+
 # 🌲🗺 cmdwtf.Treemap
 A Windows Forms control that can visualize flat or hierarchical data as a [treemap](https://en.wikipedia.org/wiki/Treemapping). Designed to be an easy to use, pseudo drop-in replacement for System.Windows.Forms.TreeView.
 
