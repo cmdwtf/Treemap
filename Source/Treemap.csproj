@@ -1,5 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="../.meta/VersionInfo.props"/>
+  <Import Project="../.meta/VersionInfo.props" />
   <PropertyGroup>
     <!-- SDK Settings -->
     <TargetFramework>net5.0-windows</TargetFramework>
@@ -10,6 +10,7 @@
     <LangVersion>preview</LangVersion>
     <Nullable>enable</Nullable>
     <GenerateDocumentation>true</GenerateDocumentation>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
     <!-- Core Project Settings -->
     <RootNamespace>cmdwtf.Treemap</RootNamespace>
@@ -34,7 +35,7 @@
     <PackageLicenseExpression>AGPL-3.0-only</PackageLicenseExpression>
     <PackageProjectUrl>https://cmd.wtf/projects/treemap</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageTags>treemap, winforms, usercontrol, controls, treeview, treemapview</PackageTags>
+    <PackageTags>treemap;winforms;usercontrol;controls;treeview;treemapview</PackageTags>
     <Title>$(Product)</Title>
 
     <!-- SourceLink & Package Symbols -->
@@ -48,11 +49,7 @@
     <Content Include="$(ProjectDir)..\.meta\$(PackageIcon)" Visible="false">
       <PackagePath>.\</PackagePath>
     </Content>
-    <Content
-      Include="$(ProjectDir)..\LICENSE; $(ProjectDir)..\copyright; $(ProjectDir)..\*.md; $(ProjectDir)\*.md"
-      Visible="false"
-      Pack="true"
-      >
+    <Content Include="$(ProjectDir)..\LICENSE; $(ProjectDir)..\copyright; $(ProjectDir)..\*.md; $(ProjectDir)\*.md" Visible="false" Pack="true">
       <PackagePath>.\</PackagePath>
     </Content>
   </ItemGroup>
