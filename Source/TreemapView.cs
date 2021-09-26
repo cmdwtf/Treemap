@@ -100,6 +100,11 @@ namespace cmdwtf.Treemap
 		protected ToolTip? _toolTip = null;
 
 		/// <summary>
+		/// The backing field for <see cref="TreemapViewNodeSorter"/>
+		/// </summary>
+		protected IComparer<TreemapNode> _treemapViewNodeSorter;
+
+		/// <summary>
 		/// Creates a new instance of a <see cref="TreemapView"/>.
 		/// </summary>
 		public TreemapView()
@@ -139,7 +144,7 @@ namespace cmdwtf.Treemap
 				RaiseDrawPlusMinusGlyph = OnDrawNodePlusMinus,
 			};
 
-			TreemapViewNodeSorter ??= new TreemapNodeSorter(this);
+			_treemapViewNodeSorter ??= new TreemapNodeSorter(this);
 
 			ImageIndexer.Index = 0;
 			SelectedImageIndexer.Index = 0;
@@ -756,11 +761,20 @@ namespace cmdwtf.Treemap
 		/// <returns>
 		/// The <see cref="System.Collections.IComparer"/> to perform the custom sort.
 		/// </returns>
+		[AmbientValue(null)]
 		[Browsable(false)]
 		[DefaultValue(null)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		[Category(Categories.Behavior)]
-		public virtual IComparer<TreemapNode>? TreemapViewNodeSorter { get; [InvalidatesControl, ForcesReTile] set; } = null;
+		public virtual IComparer<TreemapNode> TreemapViewNodeSorter
+		{
+			get => _treemapViewNodeSorter;
+			[InvalidatesControl, ForcesReTile]
+			set
+			{
+				_treemapViewNodeSorter = value ?? new TreemapNodeSorter(this);
+			}
+		}
 
 		/// <summary>
 		/// Gets or sets a value indicating whether the <see cref="TreemapNode"/>s in the <see cref="TreemapView"/> are sorted.
