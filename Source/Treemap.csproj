@@ -9,6 +9,7 @@
     <Deterministic>true</Deterministic>
     <LangVersion>preview</LangVersion>
     <Nullable>enable</Nullable>
+    <GenerateDocumentation>true</GenerateDocumentation>
 
     <!-- Core Project Settings -->
     <RootNamespace>cmdwtf.Treemap</RootNamespace>
@@ -33,7 +34,6 @@
     <PackageLicenseExpression>AGPL-3.0-only</PackageLicenseExpression>
     <PackageProjectUrl>https://cmd.wtf/projects/treemap</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Initial release.</PackageReleaseNotes>
     <PackageTags>treemap, winforms, usercontrol, controls, treeview, treemapview</PackageTags>
     <Title>$(Product)</Title>
 
@@ -48,6 +48,13 @@
     <Content Include="$(ProjectDir)..\.meta\$(PackageIcon)" Visible="false">
       <PackagePath>.\</PackagePath>
     </Content>
+    <Content
+      Include="$(ProjectDir)..\LICENSE; $(ProjectDir)..\copyright; $(ProjectDir)..\*.md; $(ProjectDir)\*.md"
+      Visible="false"
+      Pack="true"
+      >
+      <PackagePath>.\</PackagePath>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -56,5 +63,4 @@
     <PackageReference Include="MethodDecorator.Fody" Version="1.1.1" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
-
 </Project>
