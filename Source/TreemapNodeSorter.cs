@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -27,7 +27,7 @@ namespace cmdwtf.Treemap
 		/// <summary>
 		/// A thunk to get the current value for the <see cref="TreemapNode"/>
 		/// </summary>
-		private readonly Func<TreemapNode?, float> _valueFunc;
+		private Func<TreemapNode?, float> _valueFunc;
 
 		/// <summary>
 		/// Creates a new instance of <see cref="TreemapNodeSorter"/>
@@ -42,11 +42,19 @@ namespace cmdwtf.Treemap
 		/// Creates a new instance of <see cref="TreemapNodeSorter"/>
 		/// using a value retrieval function that uses the given view's mode.
 		/// </summary>
-		/// <param name="view"></param>
-		public TreemapNodeSorter(TreemapView view)
+		/// <param name="view">The view to use.</param>
+		public TreemapNodeSorter(TreemapView view) : this()
 		{
-			_valueFunc = node => view.GetNodeValueForCurrentMode(node);
+			SetView(view);
 		}
+
+		/// <summary>
+		/// Sets the <see cref="TreemapView"/> used to
+		/// get the node's value based on <see cref="TreemapView.ValueMode"/>
+		/// </summary>
+		/// <param name="view">The view to use.</param>
+		public void SetView(TreemapView view)
+			=> _valueFunc = node => view.GetNodeValueForCurrentMode(node);
 
 		/// <summary>
 		/// Compares two <see cref="TreemapNode"/>s.
