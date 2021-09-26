@@ -1,6 +1,6 @@
-﻿namespace cmdwtf.Treemap
+namespace cmdwtf.Treemap
 {
-	public partial class TreemapNodeImageIndexer
+	internal partial class TreemapNodeImageIndexer
 	{
 		/// <summary>
 		/// An enum representing the type of image list

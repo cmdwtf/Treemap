@@ -84,8 +84,19 @@ namespace cmdwtf.Treemap
 		private MouseButtons _stateDownButton = MouseButtons.None;
 
 		// property backing fields
-		protected Font _nodeHeaderFont = SystemFonts.SmallCaptionFont ?? SystemFonts.DefaultFont;
+		/// <summary>
+		/// The backing field for <see cref="NodeBranchFont"/>.
+		/// </summary>
+		protected Font _nodeBranchFont = SystemFonts.SmallCaptionFont ?? SystemFonts.DefaultFont;
+
+		/// <summary>
+		/// The backing field for <see cref="NodeLeafFont"/>.
+		/// </summary>
 		protected Font _nodeLeafFont = SystemFonts.SmallCaptionFont ?? SystemFonts.DefaultFont;
+
+		/// <summary>
+		/// The backing field for <see cref="ToolTip"/>.
+		/// </summary>
 		protected ToolTip? _toolTip = null;
 
 		/// <summary>
@@ -466,7 +477,7 @@ namespace cmdwtf.Treemap
 		[Localizable(true)]
 		public virtual Font NodeBranchFont
 		{
-			get => _nodeHeaderFont;
+			get => _nodeBranchFont;
 			[InvalidatesControl]
 			set
 			{
@@ -475,7 +486,7 @@ namespace cmdwtf.Treemap
 					value = SystemFonts.CaptionFont ?? SystemFonts.DefaultFont;
 				}
 
-				_nodeHeaderFont = value;
+				_nodeBranchFont = value;
 			}
 		}
 
@@ -526,7 +537,7 @@ namespace cmdwtf.Treemap
 		/// </summary>
 		/// <returns>
 		/// The foreground <see cref="Color"/> of a <see cref="TreemapNode"/> branch (header). The default is <see cref="SystemColors.ControlText"/>.
-		/// </summary>
+		/// </returns>
 		/// <remarks>
 		/// This value can be overridden by individual <see cref="TreemapNode"/>s using the
 		/// <see cref="TreemapNode.BranchForeColor"/> property.
@@ -540,7 +551,7 @@ namespace cmdwtf.Treemap
 		/// </summary>
 		/// <returns>
 		/// The foreground <see cref="Color"/> of a <see cref="TreemapNode"/> branch (header). The default is <see cref="SystemColors.HotTrack"/>.
-		/// </summary>
+		/// </returns>
 		/// <remarks>
 		/// This value can be overridden by individual <see cref="TreemapNode"/>s using the
 		/// <see cref="TreemapNode.BranchHotTrackForeColor"/> property.
@@ -756,6 +767,7 @@ namespace cmdwtf.Treemap
 		/// </summary>
 		/// <returns>
 		/// true if the nodes should be sorted; otherwise false. The default is true.
+		/// </returns>
 		[Browsable(false)]
 		[Category(Categories.Behavior)]
 		[DefaultValue(true)]
@@ -773,6 +785,7 @@ namespace cmdwtf.Treemap
 		/// <returns>
 		/// The delimiter string that the <see cref="TreemapNode"/> <see cref="TreemapNode"/>.FullPath
 		/// property uses. The default is the forward slash character (/).
+		/// </returns>
 		[Category(Categories.Behavior)]
 		[DefaultValue("/")]
 		public virtual string PathSeparator { get; set; } = "/";
@@ -1303,6 +1316,7 @@ namespace cmdwtf.Treemap
 		/// <summary>
 		/// Occurs when a <see cref="TreemapNode"/> is drawn and the <see cref="TreemapView"/>.DrawMode
 		/// property is set to a <see cref="TreemapViewDrawMode"/> value other than <see cref="TreemapViewDrawMode"/>.Normal.
+		/// </summary>
 		[Category(Categories.Behavior)]
 		[DefaultValue(null)]
 		public event DrawTreemapNodeEventHandler? DrawBranchNode;
@@ -1820,7 +1834,7 @@ namespace cmdwtf.Treemap
 		}
 
 		/// <summary>
-		/// Raises the <see cref="MouseMove"/> event.
+		/// Raises the <see cref="Control.MouseMove"/> event.
 		/// </summary>
 		/// <param name="e">
 		/// A <see cref="MouseEventArgs"/> that contains the event data.
@@ -2040,7 +2054,7 @@ namespace cmdwtf.Treemap
 		/// <summary>
 		/// Provides node information, given a point.
 		/// </summary>
-		/// <param name="pt">
+		/// <param name="clientPoint">
 		/// The <see cref="Point"/> at which to retrieve node information.
 		/// </param>
 		/// <returns>
@@ -2470,8 +2484,8 @@ namespace cmdwtf.Treemap
 
 		/// <summary>
 		/// Handles node events that should trigger a re-tile of the <see cref="TreemapView"/>.
-		/// This can cause many re-tiles if called repeatedly. Consider using <see cref="Control.SuspendLayout"/>
-		/// and <see cref="Control.ResumeLayout"/> to differ layout work if multiple changes are to be made.
+		/// This can cause many re-tiles if called repeatedly. Consider using <see cref="Control.SuspendLayout()"/>
+		/// and <see cref="Control.ResumeLayout()"/> to differ layout work if multiple changes are to be made.
 		/// </summary>
 		/// <param name="sender">The originator of this event.</param>
 		/// <param name="e">The event arguments.</param>

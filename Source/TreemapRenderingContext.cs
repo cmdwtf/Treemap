@@ -78,6 +78,9 @@ namespace cmdwtf.Treemap
 			/// </summary>
 			public TreemapNode? Node { get; set; } = null;
 
+			/// <summary>
+			/// The current phase of the drawing.
+			/// </summary>
 			public TreemapNodeDrawStep Step { get; set; } = TreemapNodeDrawStep.Unknown;
 
 			/// <summary>
@@ -90,6 +93,10 @@ namespace cmdwtf.Treemap
 			}
 		}
 
+		/// <summary>
+		/// The information currently being used during drawing. This
+		/// member is modified by the draw routines.
+		/// </summary>
 		public CurrentDrawInfo Current { get; init; } = new();
 
 		/// <summary>

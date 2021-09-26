@@ -64,7 +64,7 @@ namespace cmdwtf.Treemap
 		/// <returns>
 		/// The foreground <see cref="Color"/> of the <see cref="TreemapNode"/> branch as a header.
 		/// The default is null.
-		/// </summary>
+		/// </returns>
 		[Category(Categories.Appearance)]
 		[DefaultValue(null)]
 		public Color? BranchForeColor { get; set; } = null;
@@ -77,7 +77,7 @@ namespace cmdwtf.Treemap
 		/// <returns>
 		/// The foreground <see cref="Color"/> of the <see cref="TreemapNode"/> branch as a header.
 		/// The default is null.
-		/// </summary>
+		/// </returns>
 		[Category(Categories.Appearance)]
 		[DefaultValue(null)]
 		public Color? BranchHotTrackForeColor { get; set; } = null;
@@ -349,6 +349,7 @@ namespace cmdwtf.Treemap
 		/// <summary>
 		/// Recalculates the bounds of this <see cref="TreemapNode"/> based on it's value and it's children's values.
 		/// </summary>
+		/// <param name="view">The <see cref="TreemapView"/> that this node belongs to.</param>
 		/// <param name="newBounds">The maximum bounds this <see cref="TreemapNode"/> may exist in.</param>
 		/// <remarks>
 		/// License: CC BY-SA 3.0

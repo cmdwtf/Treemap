@@ -119,6 +119,7 @@ namespace cmdwtf.Treemap
 		/// </param>
 		/// <param name="children">
 		/// An array of child <see cref="TreemapNode"/> objects.
+		/// </param>
 		public TreemapNode(string text, TreemapNode[] children) : this()
 		{
 			Text = text;
@@ -212,6 +213,12 @@ namespace cmdwtf.Treemap
 				}
 			}
 		}
+
+		/// <summary>
+		/// The <see cref="TreemapView"/> that this node belongs to. This property
+		/// can not be set directly. Instead, add this node to <see cref="TreemapView.Nodes"/>,
+		/// or as a child of a node that belongs to a <see cref="TreemapView"/> already.
+		/// </summary>
 		[Category(Categories.Data)]
 		[Browsable(false)]
 		public TreemapView? TreemapView
@@ -996,7 +1003,7 @@ namespace cmdwtf.Treemap
 		/// </summary>
 		/// <returns>
 		/// The rounded <see cref="Rectangle"/> that represents the bounds of the <see cref="TreemapNode"/>.
-		/// </summary>
+		/// </returns>
 		[Browsable(false)]
 		public Rectangle Bounds => Rectangle.Round(BoundsF);
 

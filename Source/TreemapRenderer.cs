@@ -10,13 +10,13 @@ using static cmdwtf.Toolkit.WinForms.Forms;
 using CheckBoxState = System.Windows.Forms.VisualStyles.CheckBoxState;
 using ContentAlignment = System.Drawing.ContentAlignment;
 
-//using VSE = System.Windows.Forms.VisualStyles.VisualStyleElement;
-//using VSI = System.Windows.Forms.VisualStyles.VisualStyleInformation;
-//using VSR = System.Windows.Forms.VisualStyles.VisualStyleRenderer;
-//using VSS = System.Windows.Forms.VisualStyles.VisualStyleState;
-
 namespace cmdwtf.Treemap
 {
+	/// <summary>
+	/// A static collection of methods and data used to
+	/// draw <see cref="TreemapView"/> and <see cref="TreemapNode"/>
+	/// controls and component parts.
+	/// </summary>
 	public static class TreemapRenderer
 	{
 		#region Constants
@@ -60,7 +60,7 @@ namespace cmdwtf.Treemap
 
 		/// <summary>
 		/// Gets (or creates and caches) a <see cref="Font"/> with the <see cref="FontStyle.Underline"/>
-		/// style, based on <paramref name="normalFont"/>.
+		/// style, based on <paramref name="font"/>.
 		/// </summary>
 		/// <param name="font">The font to base the modified font on.</param>
 		/// <returns>The desired <see cref="Font"/>.</returns>
@@ -133,20 +133,20 @@ namespace cmdwtf.Treemap
 			=> view.LogicalToDeviceUnits((view.GridWidthDepthMultiplier * node.Level) + 1);
 
 		/// <summary>
-		/// Gets a <see cref="RectangleF"/> shrunk and offset by <see cref="LeafPadding"/>
+		/// Gets a <see cref="RectangleF"/> shrunk and offset by <see cref="TreemapNode.LeafPadding"/>
 		/// </summary>
 		/// <param name="node">The <see cref="TreemapNode"/> to use.</param>
-		/// <param name="view">The owning view to fallback on if <see cref="LeafPadding"/> is null.</param>
+		/// <param name="view">The owning view to fallback on if <see cref="TreemapNode.LeafPadding"/> is null.</param>
 		/// <returns>The shrunk and offset <see cref="RectangleF"/></returns>
 		public static RectangleF GetPaddedBoundsF(this TreemapNode node, TreemapView view)
 			=> node.BoundsF.ApplyPadding(node.LeafPadding ?? view.NodeLeafPadding);
 
 		/// <summary>
-		/// Gets a <see cref="RectangleF"/> shrunk and offset by <see cref="LeafPadding"/>
+		/// Gets a <see cref="RectangleF"/> shrunk and offset by <see cref="TreemapNode.LeafPadding"/>
 		/// (if the node is a leaf), as well as the grid width.
 		/// </summary>
 		/// <param name="node">The <see cref="TreemapNode"/> to use.</param>
-		/// <param name="view">The owning view to fallback on if <see cref="LeafPadding"/> is null.</param>
+		/// <param name="view">The owning view to fallback on if <see cref="TreemapNode.LeafPadding"/> is null.</param>
 		/// <returns>The shrunk and offset <see cref="RectangleF"/></returns>
 		public static RectangleF GetGridPaddedBoundsF(this TreemapNode node, TreemapView view)
 		{
@@ -195,7 +195,7 @@ namespace cmdwtf.Treemap
 		/// <param name="view">The <see cref="TreemapView"/> to get the <see cref="TreemapView.HideSelection"/> from.</param>
 		/// <param name="baseColor">The <see cref="Color"/> to base the modified color on.</param>
 		/// <returns>
-		/// If the <see cref="TreemapNode"/> <see cref="IsSelectedInHirearchy"/>,
+		/// If the <see cref="TreemapNode.IsSelectedInHirearchy"/>,
 		/// and if <see cref="TreemapView.HideSelection"/> is false,
 		/// will return a modified color to designate the state.
 		/// Otherwise, returns the base color.
@@ -312,7 +312,6 @@ namespace cmdwtf.Treemap
 		/// Draws the node's grid.
 		/// </summary>
 		/// <param name="graphics">The context to draw into.</param>
-		/// <param name="step">The current step of the draw pass.</param>
 		/// <param name="ctx">The draw pass information.</param>
 		public static void DrawGrid(Graphics graphics, TreemapRenderingContext ctx)
 		{
@@ -437,7 +436,7 @@ namespace cmdwtf.Treemap
 		/// Draws a branch node's background.
 		/// </summary>
 		/// <param name="graphics">The context to draw into.</param>
-		/// <param name="view">The parent view.</param>
+		/// <param name="ctx">Information about the current rendering context.</param>
 		/// <param name="headerBounds">The bounds the branch header should draw in.</param>
 		private static void DrawBranchBackground(Graphics graphics, TreemapRenderingContext ctx, RectangleF headerBounds)
 		{

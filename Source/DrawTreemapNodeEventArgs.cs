@@ -1,4 +1,4 @@
-﻿using System.Drawing;
+using System.Drawing;
 
 namespace cmdwtf.Treemap
 {
@@ -10,12 +10,12 @@ namespace cmdwtf.Treemap
 	public class DrawTreemapNodeEventArgs : System.EventArgs
 	{
 		/// <summary>
-		/// Constructs a <see cref="DrawTreemapNodeEventArgs"/ instance.>
+		/// Constructs a <see cref="DrawTreemapNodeEventArgs"/> instance.
 		/// </summary>
-		/// <param name="g"></param>
-		/// <param name="treemapNode"></param>
-		/// <param name="boundsF"></param>
-		/// <param name="step"></param>
+		/// <param name="g">The <see cref="Graphics"/> context.</param>
+		/// <param name="treemapNode">The <see cref="TreemapNode"/> that is being drawn.</param>
+		/// <param name="boundsF">The size and location of the node.</param>
+		/// <param name="step">The current phase of the draw process.</param>
 		public DrawTreemapNodeEventArgs(Graphics g, TreemapNode treemapNode, RectangleF boundsF, TreemapNodeDrawStep step)
 		{
 			Graphics = g;

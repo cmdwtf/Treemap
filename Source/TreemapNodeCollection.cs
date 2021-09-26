@@ -16,6 +16,11 @@ namespace cmdwtf.Treemap
 		private readonly TreemapNode? _owner = null;
 		private readonly List<TreemapNode> _nodes = new();
 
+		/// <summary>
+		/// Creats a new instance of a <see cref="TreemapNodeCollection"/>,
+		/// that belongs to the specified <see cref="TreemapNode"/>.
+		/// </summary>
+		/// <param name="owner">The <see cref="TreemapNode"/> this collection belongs to.</param>
 		public TreemapNodeCollection(TreemapNode owner)
 		{
 			_owner = owner;
@@ -71,7 +76,7 @@ namespace cmdwtf.Treemap
 		/// <param name="node">The <see cref="TreemapNode"/> to add to the collection.</param>
 		/// <param name="index">
 		/// The indexed location within the collection to insert the <see cref="TreemapNode"/>.
-		/// If index is < 0 or larger than the number of nodes in the collection,
+		/// If index is &lt; 0 or larger than the number of nodes in the collection,
 		/// the node will be appended to the end.
 		/// </param>
 		/// <returns>
@@ -329,6 +334,7 @@ namespace cmdwtf.Treemap
 		/// </param>
 		/// <param name="index">
 		/// The index in the destination array at which storing begins.
+		/// </param>
 		[Obsolete("This method transforms the internal list to an array before copying it to dest. There's a better way to copy the array than this function.")]
 		public void CopyTo(Array dest, int index)
 			=> Array.Copy(_nodes.ToArray(), 0, dest, index, dest.Length);
