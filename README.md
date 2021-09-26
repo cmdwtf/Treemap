@@ -28,6 +28,7 @@ This is not an exhaustive list of differences, but noted here are some of the la
 
  - `ShowPlusMinus` is false by default, because collapsing is odd for `TreemapView`s. Though it is still somewhat supported for now.
  - `ShowLines` is marked obsolete. It has been re-routed to affect the new `ShowGrid` property, which it will warn you to use instead.
+ - `LineColor` is marked obsolete. It has been re-routed to affect the new `GridColor` property, which it will warn you to use instead.
  - `FullRowSelect` is marked obsolete. It has been re-routed to affect the new `FullBranchSelect` property, which it will warn you to use instead.
    - This is a considerable departure from the behavior of `TreeView.FullRowSelect`. On the `TreeView`, this would cause the entire horizontal area from a node, extending to both sides of the control, to be selected when a node was selected. If it was false, it would just show the actual node content as selected. For `TreemapView`, this behavior is instead to show decendant nodes of a selected node as selected, so that the entire 'branch' shows as selected. This doesn't affect the underlying `SelectedNode` property, but just effects the way the control is drawn.
  - `Scrollable` is unsupported, and will always return `false`. A `TreemapView` doesn't make sense to scroll like a `TreeView` does.

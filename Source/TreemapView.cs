@@ -206,8 +206,8 @@ namespace cmdwtf.Treemap
 		/// Gets or sets the color of this control's grid.
 		/// </summary>
 		[Category(Categories.Appearance)]
-		[DefaultValue(typeof(Color), nameof(Color.Black))]
-		public virtual Color GridColor { get; [InvalidatesControl] set; } = Color.Black;
+		[DefaultValue(typeof(Color), nameof(SystemColors.ControlText))]
+		public virtual Color GridColor { get; [InvalidatesControl] set; } = SystemColors.ControlText;
 
 		/// <summary>
 		/// Gets or sets the color of this control's grid when a node is hot tracking.
@@ -225,17 +225,6 @@ namespace cmdwtf.Treemap
 		[Category(Categories.Appearance)]
 		[DefaultValue(0.0f)]
 		public virtual float GridWidthDepthMultiplier { get; [InvalidatesControl] set; } = 0.0f;
-
-		/// <summary>
-		/// Gets or sets the color of the lines connecting the nodes of the <see cref="TreemapView"/>
-		/// control.
-		/// </summary>
-		/// <returns>
-		/// The <see cref="Color"/> of the lines connecting the <see cref="TreemapNode"/>s.
-		/// </returns>
-		[DefaultValue(typeof(Color), nameof(Color.Black))]
-		[Category(Categories.Appearance)]
-		public virtual Color LineColor { get; [InvalidatesControl] set; } = Color.Black;
 
 		/// <summary>
 		/// Gets or sets the background color for the control.
@@ -1206,6 +1195,22 @@ namespace cmdwtf.Treemap
 			get => _state[States.ShowGrid];
 			[InvalidatesControl]
 			set => _state[States.ShowGrid] = value;
+		}
+
+		/// <summary>
+		/// An obsolete property kept to maintain API uniformity with <see cref="TreeView"/>.
+		/// It's value is forwarded to <see cref="GridColor"/>, and you should use that property instead.
+		/// </summary>
+		[Browsable(false)]
+		[Category(Categories.Appearance)]
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		[Obsolete($"Use {nameof(GridColor)} instead.")]
+		public virtual Color LineColor
+		{
+			get => GridColor;
+			[InvalidatesControl]
+			set => GridColor = value;
 		}
 
 		#endregion Obsolete Properties
