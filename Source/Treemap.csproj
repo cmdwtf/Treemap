@@ -2,7 +2,7 @@
   <Import Project="../.meta/VersionInfo.props" />
   <PropertyGroup>
     <!-- SDK Settings -->
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFrameworks>net5.0-windows;net48;net472;net471;net47</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
 
     <!-- Build Settings -->
@@ -55,8 +55,12 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
+    <Reference Include="System.Design" />
+  </ItemGroup>
+
   <ItemGroup>
-    <PackageReference Include="cmdwtf.Toolkit.WinForms" Version="0.26.0" />
+    <PackageReference Include="cmdwtf.Toolkit.WinForms" Version="0.27.0" />
     <PackageReference Include="Lazy.Fody" Version="1.9.0" PrivateAssets="All" />
     <PackageReference Include="MethodDecorator.Fody" Version="1.1.1" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />

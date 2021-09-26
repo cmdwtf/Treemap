@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
-    <PackageReleaseNotes>Added generated documentation to build.</PackageReleaseNotes>
-    <VersionPrefix>1.0.3</VersionPrefix>
+    <PackageReleaseNotes>Added framework targets: net48;net472;net471;net47.</PackageReleaseNotes>
+    <VersionPrefix>1.1.0</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
   </PropertyGroup>
 </Project>
