@@ -1,0 +1,129 @@
+name: .NET Build & NuGet Publish
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - '**/*.md'
+      - '**/*.gitignore'
+      - '**/*.gitattributes'
+      - '**/*.editorconfig'
+      - '**/Example/*'
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+      - '**/*.md'
+      - '**/*.gitignore'
+      - '**/*.gitattributes'
+      - '**/*.editorconfig'
+      - '**/Example/*'
+  workflow_dispatch:
+    inputs:
+      version_suffix:
+        description: 'The post-dash text to append to the build version.'
+        required: false
+        default: 'forced'
+
+jobs:
+  build-and-deploy:
+    if: contains(toJson(github.event.commits), '***NO_CI***') == false
+    name: Build & Deploy Treemap
+
+    runs-on: windows-latest
+
+    env:
+      # .NET Settings
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+      DOTNET_NOLOGO: true
+      DOTNET_GENERATE_ASPNET_CERTIFICATE: false
+      DOTNET_ADD_GLOBAL_TOOLS_TO_PATH: false
+      DOTNET_MULTILEVEL_LOOKUP: 0
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Cache .NET Toolchains
+      id: cache-dotnet-toolchain
+      uses: actions/cache@v2
+      with:
+        path: '%LocalAppData%\Microsoft\dotnet\'
+        key: 'dotnet-toolchain'
+        restore-keys: 'dotnet-toolchain'
+
+    - id: cache-dotnet-toolchain-hit-reset-paths
+      if: steps.cache-dotnet-toolchain.outputs.cache-hit == 'true'
+      run: |
+        echo "Setting `$env:GITHUB_PATH to..."
+        echo "$env:LocalAppData\Microsoft\dotnet;$env:UserProfile\.dotnet\tools;$env:PATH"
+        $env:GITHUB_PATH="$env:LocalAppData\Microsoft\dotnet;$env:UserProfile\.dotnet\tools;$env:PATH"
+
+    - name: Setup .NET 5.0
+      if: steps.cache-dotnet-toolchain.outputs.cache-hit != 'true'
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+
+    # packages don't like to restore if you don't clean first?
+    # see: https://github.com/actions/setup-dotnet/issues/155
+    - name: Clean (Restore Workaround)
+      run: dotnet clean Source/Treemap.csproj --nologo --configuration Release && dotnet nuget locals all --clear
+
+    - name: Restore dependencies
+      run: dotnet restore Source/Treemap.csproj --nologo
+
+    ####################################### BUILD #######################################
+
+    - name: Build
+      run: dotnet build Source/Treemap.csproj --nologo --no-restore --verbosity normal --configuration Release  -property:ContinuousIntegrationBuild=true
+
+    ####################################### STORE #######################################
+
+    - name: Store Binary Artifacts
+      uses: actions/upload-artifact@v2.2.2
+      with:
+        name: Library Binaries
+        path: |
+          **/Source/bin/Release/**
+          copyright
+          LICENSE
+          *.md
+        retention-days: 7
+
+    ####################################### TEST #######################################
+
+    - name: Test
+      run: dotnet test Source/Treemap.csproj --nologo --no-build --no-restore --verbosity normal
+
+    ####################################### PACK #######################################
+
+    - name: Pack
+      run: dotnet pack Source/Treemap.csproj --nologo --no-build --configuration Release -o .
+
+    ####################################### STORE #######################################
+
+    - name: Store NuGet Package Artifacts
+      uses: actions/upload-artifact@v2.2.2
+      with:
+        name: NuGet Package
+        path: |
+          *.nupkg
+          *.snupkg
+        retention-days: 7
+
+    ####################################### PUBLISH #######################################
+
+    ### Publish Package, Tag Repo
+    - name: Publish cmdwtf.Treemap
+      uses: nitz/publish-nuget@13cf3a0ec3840b62a0fd20d559ab1e2a63b0d75a
+      with:
+        PROJECT_FILE_PATH: Source/Treemap.csproj
+        PACKAGE_NAME: cmdwtf.Treemap
+        TAG_COMMIT: true
+        VERSION_FILE_PATH: .meta/VersionInfo.props
+        VERSION_REGEX: ^\s*<VersionPrefix>(.*)<\/VersionPrefix>\s*$
+        TAG_FORMAT: v*
+        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+        NUGET_SOURCE: https://api.nuget.org
+        INCLUDE_SYMBOLS: true
+        SKIP_BUILD: true

@@ -1,5 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
+  <Import Project="../.meta/VersionInfo.props"/>
   <PropertyGroup>
     <!-- SDK Settings -->
     <TargetFramework>net5.0-windows</TargetFramework>
@@ -14,7 +14,6 @@
     <RootNamespace>cmdwtf.Treemap</RootNamespace>
     <AssemblyName>cmdwtf.Treemap</AssemblyName>
     <Product>cmd.wtf Treemap</Product>
-    <Version>1.0.0</Version>
 
     <!-- Core Project Information -->
     <Authors>Chris Marc Dailey (nitz)</Authors>
@@ -44,18 +43,6 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Example\**" />
-    <EmbeddedResource Remove="Example\**" />
-    <None Remove="Example\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="copyright" />
-    <None Remove="LICENSE" />
-    <None Remove="**\**.md" />
-  </ItemGroup>
 
   <ItemGroup>
     <Content Include="$(ProjectDir)..\.meta\$(PackageIcon)" Visible="false">

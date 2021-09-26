@@ -12,8 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		copyright = copyright
+		.github\workflows\dotnet.yaml = .github\workflows\dotnet.yaml
 		LICENSE = LICENSE
 		README.md = README.md
+		.meta\VersionInfo.props = .meta\VersionInfo.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Treemap", "Source\Treemap.csproj", "{09CEE547-5819-4D6D-9F28-A9BF8630DB4C}"
