@@ -87,12 +87,12 @@ namespace cmdwtf.Treemap
 		/// <summary>
 		/// The backing field for <see cref="NodeBranchFont"/>.
 		/// </summary>
-		protected Font _nodeBranchFont = SystemFonts.SmallCaptionFont ?? SystemFonts.DefaultFont;
+		protected Font _nodeBranchFont = DefaultFont;
 
 		/// <summary>
 		/// The backing field for <see cref="NodeLeafFont"/>.
 		/// </summary>
-		protected Font _nodeLeafFont = SystemFonts.SmallCaptionFont ?? SystemFonts.DefaultFont;
+		protected Font _nodeLeafFont = DefaultFont;
 
 		/// <summary>
 		/// The backing field for <see cref="ToolTip"/>.
@@ -448,7 +448,7 @@ namespace cmdwtf.Treemap
 			{
 				if (value == null)
 				{
-					value = SystemFonts.SmallCaptionFont ?? SystemFonts.DefaultFont;
+					value = DefaultFont;
 				}
 
 				_nodeLeafFont = value;
@@ -477,7 +477,7 @@ namespace cmdwtf.Treemap
 			{
 				if (value == null)
 				{
-					value = SystemFonts.CaptionFont ?? SystemFonts.DefaultFont;
+					value = DefaultFont;
 				}
 
 				_nodeBranchFont = value;
