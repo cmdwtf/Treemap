@@ -25,6 +25,23 @@ namespace cmdwtf.Treemap
 		}
 
 		/// <summary>
+		/// A root node always knows where it's parent is.
+		/// </summary>
+		/// <returns>The <see cref="TreemapView"/> that this root node belongs to.</returns>
+		internal override TreemapView? FindTreemapView() => ParentView;
+
+		/// <summary>
+		/// A root node doesn't have parts like a regular node does,
+		/// so it will just return that any hit test just hit
+		/// it as <see cref="TreemapViewHitTestLocations.Node"/>.
+		/// </summary>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		/// <returns></returns>
+		internal override TreemapViewHitTestLocations GetHitTestLocation(int x, int y)
+			=> TreemapViewHitTestLocations.Node;
+
+		/// <summary>
 		/// Cloning root nodes is not supported.
 		/// </summary>
 		/// <exception cref="NotSupportedException">

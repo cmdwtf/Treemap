@@ -670,7 +670,7 @@ namespace cmdwtf.Treemap
 		/// <param name="x">The x coordinate to test.</param>
 		/// <param name="y">The y coordiante to test.</param>
 		/// <returns>A <see cref="TreemapViewHitTestLocations"/> representing the result of the test.</returns>
-		internal TreemapViewHitTestLocations GetHitTestLocation(int x, int y)
+		internal virtual TreemapViewHitTestLocations GetHitTestLocation(int x, int y)
 		{
 			// are we in our client area at all?
 			if (Bounds.Contains(x, y) == false)
@@ -1586,7 +1586,7 @@ namespace cmdwtf.Treemap
 		/// the top most node's parent view.
 		/// </summary>
 		/// <returns>The <see cref="TreemapView"/> this node belongs to.</returns>
-		internal TreemapView? FindTreemapView()
+		internal virtual TreemapView? FindTreemapView()
 		{
 			TreemapNode target = this;
 			while (target.ParentInternal is not null)
