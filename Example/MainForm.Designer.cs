@@ -120,7 +120,6 @@ namespace Example
             stringFormat1.Trimming = System.Drawing.StringTrimming.None;
             this.treemapView.NoDataTextFormat = stringFormat1;
             this.treemapView.NodeBranchBackColor = System.Drawing.SystemColors.ControlLight;
-            this.treemapView.NodeBranchFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             stringFormat2.Alignment = System.Drawing.StringAlignment.Center;
             stringFormat2.FormatFlags = ((System.Drawing.StringFormatFlags)(((System.Drawing.StringFormatFlags.FitBlackBox | System.Drawing.StringFormatFlags.LineLimit) 
             | System.Drawing.StringFormatFlags.NoClip)));
@@ -129,7 +128,6 @@ namespace Example
             stringFormat2.Trimming = System.Drawing.StringTrimming.None;
             this.treemapView.NodeBranchHeaderStringFormat = stringFormat2;
             this.treemapView.NodeBranchMargin = new System.Windows.Forms.Padding(0);
-            this.treemapView.NodeLeafFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.treemapView.NodeLeafPadding = new System.Windows.Forms.Padding(0);
             stringFormat3.Alignment = System.Drawing.StringAlignment.Center;
             stringFormat3.FormatFlags = ((System.Drawing.StringFormatFlags)(((System.Drawing.StringFormatFlags.FitBlackBox | System.Drawing.StringFormatFlags.LineLimit) 
@@ -151,7 +149,7 @@ namespace Example
             this.tabPageTreeView.Margin = new System.Windows.Forms.Padding(6);
             this.tabPageTreeView.Name = "tabPageTreeView";
             this.tabPageTreeView.Padding = new System.Windows.Forms.Padding(6);
-            this.tabPageTreeView.Size = new System.Drawing.Size(1470, 858);
+            this.tabPageTreeView.Size = new System.Drawing.Size(1758, 1227);
             this.tabPageTreeView.TabIndex = 1;
             this.tabPageTreeView.Text = "Sample Data (TreeView)";
             this.tabPageTreeView.UseVisualStyleBackColor = true;
@@ -162,7 +160,7 @@ namespace Example
             this.treeView.Location = new System.Drawing.Point(6, 6);
             this.treeView.Margin = new System.Windows.Forms.Padding(6);
             this.treeView.Name = "treeView";
-            this.treeView.Size = new System.Drawing.Size(1458, 846);
+            this.treeView.Size = new System.Drawing.Size(1746, 1215);
             this.treeView.TabIndex = 0;
             // 
             // tabPageTreemapViewSimple
@@ -172,7 +170,7 @@ namespace Example
             this.tabPageTreemapViewSimple.Margin = new System.Windows.Forms.Padding(6);
             this.tabPageTreemapViewSimple.Name = "tabPageTreemapViewSimple";
             this.tabPageTreemapViewSimple.Padding = new System.Windows.Forms.Padding(6);
-            this.tabPageTreemapViewSimple.Size = new System.Drawing.Size(1470, 858);
+            this.tabPageTreemapViewSimple.Size = new System.Drawing.Size(1758, 1227);
             this.tabPageTreemapViewSimple.TabIndex = 2;
             this.tabPageTreemapViewSimple.Text = "Simple Data (TreemapView)";
             this.tabPageTreemapViewSimple.UseVisualStyleBackColor = true;
@@ -195,7 +193,6 @@ namespace Example
             stringFormat4.LineAlignment = System.Drawing.StringAlignment.Center;
             stringFormat4.Trimming = System.Drawing.StringTrimming.None;
             this.treemapViewSimple.NoDataTextFormat = stringFormat4;
-            this.treemapViewSimple.NodeBranchFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             stringFormat5.Alignment = System.Drawing.StringAlignment.Center;
             stringFormat5.FormatFlags = ((System.Drawing.StringFormatFlags)(((System.Drawing.StringFormatFlags.FitBlackBox | System.Drawing.StringFormatFlags.LineLimit) 
             | System.Drawing.StringFormatFlags.NoClip)));
@@ -205,7 +202,6 @@ namespace Example
             this.treemapViewSimple.NodeBranchHeaderStringFormat = stringFormat5;
             this.treemapViewSimple.NodeBranchMargin = new System.Windows.Forms.Padding(0);
             this.treemapViewSimple.NodeImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.treemapViewSimple.NodeLeafFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.treemapViewSimple.NodeLeafPadding = new System.Windows.Forms.Padding(0);
             stringFormat6.Alignment = System.Drawing.StringAlignment.Center;
             stringFormat6.FormatFlags = ((System.Drawing.StringFormatFlags)(((System.Drawing.StringFormatFlags.FitBlackBox | System.Drawing.StringFormatFlags.LineLimit) 
@@ -217,7 +213,7 @@ namespace Example
             this.treemapViewSimple.SelectedImageIndex = 2;
             this.treemapViewSimple.ShowNodeToolTips = true;
             this.treemapViewSimple.ShowPlusMinus = true;
-            this.treemapViewSimple.Size = new System.Drawing.Size(1458, 846);
+            this.treemapViewSimple.Size = new System.Drawing.Size(1746, 1215);
             this.treemapViewSimple.StateImageList = this.imageListState;
             this.treemapViewSimple.TabIndex = 1;
             // 

@@ -87,12 +87,12 @@ namespace cmdwtf.Treemap
 		/// <summary>
 		/// The backing field for <see cref="NodeBranchFont"/>.
 		/// </summary>
-		protected Font _nodeBranchFont = DefaultFont;
+		protected Font? _nodeBranchFont;
 
 		/// <summary>
 		/// The backing field for <see cref="NodeLeafFont"/>.
 		/// </summary>
-		protected Font _nodeLeafFont = DefaultFont;
+		protected Font? _nodeLeafFont;
 
 		/// <summary>
 		/// The backing field for <see cref="ToolTip"/>.
@@ -438,19 +438,13 @@ namespace cmdwtf.Treemap
 		/// </remarks>
 		[AmbientValue(null)]
 		[Category(Categories.AppearanceNode)]
-		[DefaultValue(null)]
 		[Localizable(true)]
-		public virtual Font NodeLeafFont
+		public virtual Font? NodeLeafFont
 		{
-			get => _nodeLeafFont;
+			get => _nodeLeafFont ?? Parent.Font;
 			[InvalidatesControl]
 			set
 			{
-				if (value == null)
-				{
-					value = DefaultFont;
-				}
-
 				_nodeLeafFont = value;
 			}
 		}
@@ -467,19 +461,13 @@ namespace cmdwtf.Treemap
 		/// </remarks>
 		[AmbientValue(null)]
 		[Category(Categories.AppearanceNode)]
-		[DefaultValue(null)]
 		[Localizable(true)]
-		public virtual Font NodeBranchFont
+		public virtual Font? NodeBranchFont
 		{
-			get => _nodeBranchFont;
+			get => _nodeBranchFont ?? Parent.Font;
 			[InvalidatesControl]
 			set
 			{
-				if (value == null)
-				{
-					value = DefaultFont;
-				}
-
 				_nodeBranchFont = value;
 			}
 		}
@@ -2240,6 +2228,45 @@ namespace cmdwtf.Treemap
 		/// <param name="node">The <see cref="TreemapNode"/> region to invalidate.</param>
 		internal void Invalidate(TreemapNode node)
 			=> Invalidate(node.Bounds);
+
+
+		#region Designer Ambient Magic Methods
+
+		/// <summary>
+		/// Magic method to tell the designer when not to serialize
+		/// <see cref="NodeLeafFont" />.
+		/// </summary>
+		/// <returns></returns>
+		private bool ShouldSerializeNodeLeafFont()
+			=> (Parent == null || !Parent.Font.Equals(NodeLeafFont))
+				&& NodeLeafFont != null;
+
+		/// <summary>
+		/// Magic method to reset <see cref="NodeLeafFont"/>
+		/// </summary>
+		private void ResetNodeLeafFont()
+			=> NodeLeafFont = Parent != null
+			? Parent.Font
+			: DefaultFont;
+
+		/// <summary>
+		/// Magic method to tell the designer when not to serialize
+		/// <see cref="NodeBranchFont" />.
+		/// </summary>
+		/// <returns></returns>
+		private bool ShouldSerializeNodeBranchFont()
+			=> (Parent == null || !Parent.Font.Equals(NodeBranchFont))
+				&& NodeBranchFont != null;
+
+		/// <summary>
+		/// Magic method to reset <see cref="NodeBranchFont"/>
+		/// </summary>
+		private void ResetNodeBranchFont()
+			=> NodeBranchFont = Parent != null
+			? Parent.Font
+			: DefaultFont;
+
+		#endregion Designer Ambient Magic Methods
 
 		#endregion Private / Internal Methods
 

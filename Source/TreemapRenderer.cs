@@ -227,6 +227,26 @@ namespace cmdwtf.Treemap
 		}
 
 		/// <summary>
+		/// Tries each font given in order, returning the first non null font.
+		/// If they are all null, returns the control's font.
+		/// </summary>
+		/// <param name="control">The <see cref="Control"/> to fall back on if all fonts are null.</param>
+		/// <param name="fonts">The <see cref="Font"/>s to inspect.</param>
+		/// <returns>A <see cref="Font"/> to use.</returns>
+		private static Font GetFontOrDefault(this Control control, params Font?[] fonts)
+		{
+			foreach (Font? font in fonts)
+			{
+				if (font is not null)
+				{
+					return font;
+				}
+			}
+
+			return control.Font;
+		}
+
+		/// <summary>
 		/// Gets (or creates and caches) a <see cref="Brush"/> for the appropriate <see cref="Color"/> and hot tracking state.
 		/// </summary>
 		/// <param name="node">The <see cref="TreemapNode"/> to use.</param>
@@ -422,7 +442,7 @@ namespace cmdwtf.Treemap
 			TreemapView view = ctx.View;
 			Color headerHotTrackForeColor = node.BranchHotTrackForeColor ?? view.NodeBranchHotTrackForeColor;
 			Color headerForeColor = node.BranchForeColor ?? view.NodeBranchForeColor;
-			Font headerFont = node.GetHotTrackingModifiedFont(node.NodeBranchFont ?? view.NodeBranchFont);
+			Font headerFont = node.GetHotTrackingModifiedFont(view.GetFontOrDefault(node.NodeBranchFont ?? view.NodeBranchFont));
 			StringFormat format = node.BranchStringFormat ?? view.NodeBranchHeaderStringFormat;
 			Brush headerTextBrush = node.GetHotTrackingModifiedBrush(view, headerForeColor, headerHotTrackForeColor);
 
@@ -510,7 +530,7 @@ namespace cmdwtf.Treemap
 			RectangleF paddedBounds = node.GetGridPaddedBoundsF(view);
 			Color foreColor = node.ForeColor ?? view.NodeLeafForeColor;
 			Color hotTrackForeColor = node.HotTrackForeColor ?? view.NodeLeafHotTrackForeColor;
-			Font nodeFont = node.GetHotTrackingModifiedFont(node.NodeLeafFont ?? view.NodeLeafFont);
+			Font nodeFont = node.GetHotTrackingModifiedFont(view.GetFontOrDefault(node.NodeLeafFont ?? view.NodeLeafFont));
 			StringFormat format = node.LeafStringFormat ?? view.NodeLeafStringFormat;
 			Brush textBrush = node.GetHotTrackingModifiedBrush(view, foreColor, hotTrackForeColor);
 

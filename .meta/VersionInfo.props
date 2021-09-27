@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
-    <PackageReleaseNotes>Added framework targets: net48;net472;net471;net47.</PackageReleaseNotes>
-    <VersionPrefix>1.1.1</VersionPrefix>
+    <PackageReleaseNotes>Better font default and fallback handling.</PackageReleaseNotes>
+    <VersionPrefix>1.1.2</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
   </PropertyGroup>
 </Project>
