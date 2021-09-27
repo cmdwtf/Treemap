@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
-    <PackageReleaseNotes>Better font default and fallback handling.</PackageReleaseNotes>
-    <VersionPrefix>1.1.2</VersionPrefix>
+    <PackageReleaseNotes>Fix enumeration exception caused by clearing nodes from collection.</PackageReleaseNotes>
+    <VersionPrefix>1.1.3</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
   </PropertyGroup>
 </Project>

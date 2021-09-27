@@ -293,12 +293,14 @@ namespace cmdwtf.Treemap
 		/// </summary>
 		public virtual void Clear()
 		{
-			foreach (TreemapNode node in _nodes)
+			List<TreemapNode> toRemove = _nodes.ToList();
+			_nodes.Clear();
+
+			foreach (TreemapNode node in toRemove)
 			{
 				node.Parent = null;
 			}
 
-			_nodes.Clear();
 		}
 
 		/// <summary>
