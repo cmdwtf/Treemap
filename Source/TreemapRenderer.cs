@@ -6,9 +6,11 @@ using System.Windows.Forms.VisualStyles;
 
 using static cmdwtf.Toolkit.WinForms.Drawing;
 using static cmdwtf.Toolkit.WinForms.Forms;
+using static cmdwtf.Toolkit.WinForms.VisualStyleRendererCacheExtensions;
 
 using CheckBoxState = System.Windows.Forms.VisualStyles.CheckBoxState;
 using ContentAlignment = System.Drawing.ContentAlignment;
+using VisualStyleRendererCache = cmdwtf.Toolkit.WinForms.VisualStyleRendererCache;
 
 namespace cmdwtf.Treemap
 {
@@ -56,7 +58,7 @@ namespace cmdwtf.Treemap
 		/// <summary>
 		/// A cache for <see cref="VisualStyleRenderer"/>s.
 		/// </summary>
-		private static readonly Dictionary<VisualStyleElement, VisualStyleRenderer> _cachedRenderers = new();
+		private static readonly VisualStyleRendererCache _vsrCache = new();
 
 		/// <summary>
 		/// Gets (or creates and caches) a <see cref="Font"/> with the <see cref="FontStyle.Underline"/>
@@ -103,22 +105,6 @@ namespace cmdwtf.Treemap
 
 			return _cachedPens[color];
 		}
-
-		/// <summary>
-		/// Gets (or creates and caches) a <see cref="VisualStyleRenderer"/> for the given <see cref="VisualStyleElement"/>.
-		/// </summary>
-		/// <param name="element">The <see cref="VisualStyleElement"/> to get a renderer for.</param>
-		/// <returns>The <see cref="VisualStyleRenderer"/>.</returns>
-		private static VisualStyleRenderer GetCachedRenderer(this VisualStyleElement element)
-		{
-			if (!_cachedRenderers.ContainsKey(element))
-			{
-				_cachedRenderers[element] = new VisualStyleRenderer(element);
-			}
-
-			return _cachedRenderers[element];
-		}
-
 		#endregion Cache
 
 		#region Calculators
@@ -676,8 +662,8 @@ namespace cmdwtf.Treemap
 				VisualStyleElement.TreeView.Glyph.Closed.GetCachedRenderer();
 #else
 					node.IsMouseOverPlusMinus
-					? CustomVisualStyleElement.ExplorerTreeView.Glyph.Hover.Closed.GetCachedRenderer()
-					: CustomVisualStyleElement.ExplorerTreeView.Glyph.Normal.Closed.GetCachedRenderer();
+					? CustomVisualStyleElement.ExplorerTreeView.Glyph.Hover.Closed.GetRenderer(_vsrCache)
+					: CustomVisualStyleElement.ExplorerTreeView.Glyph.Normal.Closed.GetRenderer(_vsrCache);
 #endif // USE_CLASSIC_PLUSMINUS_GLYPHS
 				plusRenderer.DrawBackground(graphics, glyphRect);
 			}
@@ -688,8 +674,8 @@ namespace cmdwtf.Treemap
 					VisualStyleElement.TreeView.Glyph.Opened.GetCachedRenderer();
 #else
 					node.IsMouseOverPlusMinus
-					? CustomVisualStyleElement.ExplorerTreeView.Glyph.Hover.Opened.GetCachedRenderer()
-					: CustomVisualStyleElement.ExplorerTreeView.Glyph.Normal.Opened.GetCachedRenderer();
+					? CustomVisualStyleElement.ExplorerTreeView.Glyph.Hover.Opened.GetRenderer(_vsrCache)
+					: CustomVisualStyleElement.ExplorerTreeView.Glyph.Normal.Opened.GetRenderer(_vsrCache);
 #endif // USE_CLASSIC_PLUSMINUS_GLYPHS
 				minusRenderer.DrawBackground(graphics, glyphRect);
 			}
