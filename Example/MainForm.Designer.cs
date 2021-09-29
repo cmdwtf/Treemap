@@ -86,22 +86,20 @@ namespace Example
             this.tabControl.Controls.Add(this.tabPageTreemapView);
             this.tabControl.Controls.Add(this.tabPageTreeView);
             this.tabControl.Controls.Add(this.tabPageTreemapViewSimple);
-            this.tabControl.Location = new System.Drawing.Point(0, 48);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(6);
+            this.tabControl.Location = new System.Drawing.Point(0, 28);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1774, 1281);
+            this.tabControl.Size = new System.Drawing.Size(887, 502);
             this.tabControl.TabIndex = 1;
             this.tabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl_Selecting);
             // 
             // tabPageTreemapView
             // 
             this.tabPageTreemapView.Controls.Add(this.treemapView);
-            this.tabPageTreemapView.Location = new System.Drawing.Point(8, 46);
-            this.tabPageTreemapView.Margin = new System.Windows.Forms.Padding(6);
+            this.tabPageTreemapView.Location = new System.Drawing.Point(4, 24);
             this.tabPageTreemapView.Name = "tabPageTreemapView";
-            this.tabPageTreemapView.Padding = new System.Windows.Forms.Padding(6);
-            this.tabPageTreemapView.Size = new System.Drawing.Size(1758, 1227);
+            this.tabPageTreemapView.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTreemapView.Size = new System.Drawing.Size(879, 474);
             this.tabPageTreemapView.TabIndex = 0;
             this.tabPageTreemapView.Text = "Sample Data (TreemapView)";
             this.tabPageTreemapView.UseVisualStyleBackColor = true;
@@ -109,8 +107,8 @@ namespace Example
             // treemapView
             // 
             this.treemapView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treemapView.Location = new System.Drawing.Point(6, 6);
-            this.treemapView.Margin = new System.Windows.Forms.Padding(4);
+            this.treemapView.Location = new System.Drawing.Point(3, 3);
+            this.treemapView.Margin = new System.Windows.Forms.Padding(2);
             this.treemapView.Name = "treemapView";
             stringFormat1.Alignment = System.Drawing.StringAlignment.Center;
             stringFormat1.FormatFlags = ((System.Drawing.StringFormatFlags)(((System.Drawing.StringFormatFlags.FitBlackBox | System.Drawing.StringFormatFlags.LineLimit) 
@@ -137,7 +135,7 @@ namespace Example
             stringFormat3.Trimming = System.Drawing.StringTrimming.None;
             this.treemapView.NodeLeafStringFormat = stringFormat3;
             this.treemapView.ShowNodeToolTips = true;
-            this.treemapView.Size = new System.Drawing.Size(1746, 1215);
+            this.treemapView.Size = new System.Drawing.Size(873, 468);
             this.treemapView.TabIndex = 1;
             this.treemapView.Text = "Sample Data Treemap. The \'Text\' property is shown if there is no data.\r\nIf Text i" +
     "s null or empty, a generic no data message will be shown.";
@@ -145,11 +143,10 @@ namespace Example
             // tabPageTreeView
             // 
             this.tabPageTreeView.Controls.Add(this.treeView);
-            this.tabPageTreeView.Location = new System.Drawing.Point(8, 46);
-            this.tabPageTreeView.Margin = new System.Windows.Forms.Padding(6);
+            this.tabPageTreeView.Location = new System.Drawing.Point(4, 24);
             this.tabPageTreeView.Name = "tabPageTreeView";
-            this.tabPageTreeView.Padding = new System.Windows.Forms.Padding(6);
-            this.tabPageTreeView.Size = new System.Drawing.Size(1758, 1227);
+            this.tabPageTreeView.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTreeView.Size = new System.Drawing.Size(879, 474);
             this.tabPageTreeView.TabIndex = 1;
             this.tabPageTreeView.Text = "Sample Data (TreeView)";
             this.tabPageTreeView.UseVisualStyleBackColor = true;
@@ -157,20 +154,18 @@ namespace Example
             // treeView
             // 
             this.treeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView.Location = new System.Drawing.Point(6, 6);
-            this.treeView.Margin = new System.Windows.Forms.Padding(6);
+            this.treeView.Location = new System.Drawing.Point(3, 3);
             this.treeView.Name = "treeView";
-            this.treeView.Size = new System.Drawing.Size(1746, 1215);
+            this.treeView.Size = new System.Drawing.Size(873, 468);
             this.treeView.TabIndex = 0;
             // 
             // tabPageTreemapViewSimple
             // 
             this.tabPageTreemapViewSimple.Controls.Add(this.treemapViewSimple);
-            this.tabPageTreemapViewSimple.Location = new System.Drawing.Point(8, 46);
-            this.tabPageTreemapViewSimple.Margin = new System.Windows.Forms.Padding(6);
+            this.tabPageTreemapViewSimple.Location = new System.Drawing.Point(4, 24);
             this.tabPageTreemapViewSimple.Name = "tabPageTreemapViewSimple";
-            this.tabPageTreemapViewSimple.Padding = new System.Windows.Forms.Padding(6);
-            this.tabPageTreemapViewSimple.Size = new System.Drawing.Size(1758, 1227);
+            this.tabPageTreemapViewSimple.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTreemapViewSimple.Size = new System.Drawing.Size(879, 474);
             this.tabPageTreemapViewSimple.TabIndex = 2;
             this.tabPageTreemapViewSimple.Text = "Simple Data (TreemapView)";
             this.tabPageTreemapViewSimple.UseVisualStyleBackColor = true;
@@ -183,8 +178,8 @@ namespace Example
             this.treemapViewSimple.HideSelection = false;
             this.treemapViewSimple.ImageIndex = 0;
             this.treemapViewSimple.ImageList = this.imageListDefault;
-            this.treemapViewSimple.Location = new System.Drawing.Point(6, 6);
-            this.treemapViewSimple.Margin = new System.Windows.Forms.Padding(4);
+            this.treemapViewSimple.Location = new System.Drawing.Point(3, 3);
+            this.treemapViewSimple.Margin = new System.Windows.Forms.Padding(2);
             this.treemapViewSimple.Name = "treemapViewSimple";
             stringFormat4.Alignment = System.Drawing.StringAlignment.Center;
             stringFormat4.FormatFlags = ((System.Drawing.StringFormatFlags)(((System.Drawing.StringFormatFlags.FitBlackBox | System.Drawing.StringFormatFlags.LineLimit) 
@@ -213,7 +208,7 @@ namespace Example
             this.treemapViewSimple.SelectedImageIndex = 2;
             this.treemapViewSimple.ShowNodeToolTips = true;
             this.treemapViewSimple.ShowPlusMinus = true;
-            this.treemapViewSimple.Size = new System.Drawing.Size(1746, 1215);
+            this.treemapViewSimple.Size = new System.Drawing.Size(873, 468);
             this.treemapViewSimple.StateImageList = this.imageListState;
             this.treemapViewSimple.TabIndex = 1;
             // 
@@ -226,32 +221,32 @@ namespace Example
             this.toolStripSeparatorDefaultSeperator,
             this.toolStripMenuItemDefaultMenu});
             this.contextMenuStripDefault.Name = "contextMenuStripDefault";
-            this.contextMenuStripDefault.Size = new System.Drawing.Size(188, 130);
+            this.contextMenuStripDefault.Size = new System.Drawing.Size(133, 124);
             // 
             // toolStripMenuItemDefaultDefault
             // 
             this.toolStripMenuItemDefaultDefault.Image = global::Example.Properties.Resources.briefcase;
             this.toolStripMenuItemDefaultDefault.Name = "toolStripMenuItemDefaultDefault";
-            this.toolStripMenuItemDefaultDefault.Size = new System.Drawing.Size(187, 40);
+            this.toolStripMenuItemDefaultDefault.Size = new System.Drawing.Size(132, 38);
             this.toolStripMenuItemDefaultDefault.Text = "Default";
             // 
             // toolStripMenuItemDefaultContext
             // 
             this.toolStripMenuItemDefaultContext.Image = global::Example.Properties.Resources.address_book;
             this.toolStripMenuItemDefaultContext.Name = "toolStripMenuItemDefaultContext";
-            this.toolStripMenuItemDefaultContext.Size = new System.Drawing.Size(187, 40);
+            this.toolStripMenuItemDefaultContext.Size = new System.Drawing.Size(132, 38);
             this.toolStripMenuItemDefaultContext.Text = "Context";
             // 
             // toolStripSeparatorDefaultSeperator
             // 
             this.toolStripSeparatorDefaultSeperator.Name = "toolStripSeparatorDefaultSeperator";
-            this.toolStripSeparatorDefaultSeperator.Size = new System.Drawing.Size(184, 6);
+            this.toolStripSeparatorDefaultSeperator.Size = new System.Drawing.Size(129, 6);
             // 
             // toolStripMenuItemDefaultMenu
             // 
             this.toolStripMenuItemDefaultMenu.Image = global::Example.Properties.Resources.window_vista;
             this.toolStripMenuItemDefaultMenu.Name = "toolStripMenuItemDefaultMenu";
-            this.toolStripMenuItemDefaultMenu.Size = new System.Drawing.Size(187, 40);
+            this.toolStripMenuItemDefaultMenu.Size = new System.Drawing.Size(132, 38);
             this.toolStripMenuItemDefaultMenu.Text = "Menu";
             // 
             // imageListDefault
@@ -278,18 +273,17 @@ namespace Example
             this.contextMenuStripCustom.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemCustomCustom});
             this.contextMenuStripCustom.Name = "contextMenuStripCustom";
-            this.contextMenuStripCustom.Size = new System.Drawing.Size(347, 44);
+            this.contextMenuStripCustom.Size = new System.Drawing.Size(212, 42);
             // 
             // toolStripMenuItemCustomCustom
             // 
             this.toolStripMenuItemCustomCustom.Image = global::Example.Properties.Resources.flag;
             this.toolStripMenuItemCustomCustom.Name = "toolStripMenuItemCustomCustom";
-            this.toolStripMenuItemCustomCustom.Size = new System.Drawing.Size(346, 40);
+            this.toolStripMenuItemCustomCustom.Size = new System.Drawing.Size(211, 38);
             this.toolStripMenuItemCustomCustom.Text = "Custom Context Menu";
             // 
             // toolStripMain
             // 
-            this.toolStripMain.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSplitButtonDrawStyle,
             this.toolStripButtonCheckBoxes,
@@ -300,7 +294,8 @@ namespace Example
             this.toolStripButtonShowGrid});
             this.toolStripMain.Location = new System.Drawing.Point(0, 0);
             this.toolStripMain.Name = "toolStripMain";
-            this.toolStripMain.Size = new System.Drawing.Size(1774, 42);
+            this.toolStripMain.Padding = new System.Windows.Forms.Padding(0);
+            this.toolStripMain.Size = new System.Drawing.Size(887, 25);
             this.toolStripMain.TabIndex = 2;
             this.toolStripMain.Text = "Tool Strip";
             // 
@@ -314,7 +309,7 @@ namespace Example
             this.toolStripSplitButtonDrawStyle.Image = global::Example.Properties.Resources.window_xp_edit;
             this.toolStripSplitButtonDrawStyle.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButtonDrawStyle.Name = "toolStripSplitButtonDrawStyle";
-            this.toolStripSplitButtonDrawStyle.Size = new System.Drawing.Size(251, 36);
+            this.toolStripSplitButtonDrawStyle.Size = new System.Drawing.Size(126, 22);
             this.toolStripSplitButtonDrawStyle.Text = "Node Draw Style";
             this.toolStripSplitButtonDrawStyle.ButtonClick += new System.EventHandler(this.toolStripSplitButtonDrawStyle_ButtonClick);
             // 
@@ -323,7 +318,7 @@ namespace Example
             this.flatToolStripMenuItem.CheckOnClick = true;
             this.flatToolStripMenuItem.Image = global::Example.Properties.Resources.bullet_black_alt;
             this.flatToolStripMenuItem.Name = "flatToolStripMenuItem";
-            this.flatToolStripMenuItem.Size = new System.Drawing.Size(369, 44);
+            this.flatToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.flatToolStripMenuItem.Text = "Flat";
             this.flatToolStripMenuItem.Click += new System.EventHandler(this.flatToolStripMenuItem_Click);
             // 
@@ -332,7 +327,7 @@ namespace Example
             this.gradientRadialToolStripMenuItem.CheckOnClick = true;
             this.gradientRadialToolStripMenuItem.Image = global::Example.Properties.Resources.bullet_purple_alt;
             this.gradientRadialToolStripMenuItem.Name = "gradientRadialToolStripMenuItem";
-            this.gradientRadialToolStripMenuItem.Size = new System.Drawing.Size(369, 44);
+            this.gradientRadialToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.gradientRadialToolStripMenuItem.Text = "Gradient (Radial)";
             this.gradientRadialToolStripMenuItem.Click += new System.EventHandler(this.gradientRadialToolStripMenuItem_Click);
             // 
@@ -341,7 +336,7 @@ namespace Example
             this.gradientHorizontalToolStripMenuItem.CheckOnClick = true;
             this.gradientHorizontalToolStripMenuItem.Image = global::Example.Properties.Resources.bullet_orange_alt;
             this.gradientHorizontalToolStripMenuItem.Name = "gradientHorizontalToolStripMenuItem";
-            this.gradientHorizontalToolStripMenuItem.Size = new System.Drawing.Size(369, 44);
+            this.gradientHorizontalToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.gradientHorizontalToolStripMenuItem.Text = "Gradient (Horizontal)";
             this.gradientHorizontalToolStripMenuItem.Click += new System.EventHandler(this.gradientHorizontalToolStripMenuItem_Click);
             // 
@@ -350,7 +345,7 @@ namespace Example
             this.gradientVerticalToolStripMenuItem.CheckOnClick = true;
             this.gradientVerticalToolStripMenuItem.Image = global::Example.Properties.Resources.bullet_blue_alt;
             this.gradientVerticalToolStripMenuItem.Name = "gradientVerticalToolStripMenuItem";
-            this.gradientVerticalToolStripMenuItem.Size = new System.Drawing.Size(369, 44);
+            this.gradientVerticalToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.gradientVerticalToolStripMenuItem.Text = "Gradient (Vertical)";
             this.gradientVerticalToolStripMenuItem.Click += new System.EventHandler(this.gradientVerticalToolStripMenuItem_Click);
             // 
@@ -360,7 +355,7 @@ namespace Example
             this.toolStripButtonCheckBoxes.Image = global::Example.Properties.Resources.system_tick_alt;
             this.toolStripButtonCheckBoxes.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCheckBoxes.Name = "toolStripButtonCheckBoxes";
-            this.toolStripButtonCheckBoxes.Size = new System.Drawing.Size(177, 36);
+            this.toolStripButtonCheckBoxes.Size = new System.Drawing.Size(91, 22);
             this.toolStripButtonCheckBoxes.Text = "CheckBoxes";
             this.toolStripButtonCheckBoxes.Click += new System.EventHandler(this.toolStripButtonCheckBoxes_Click);
             // 
@@ -370,7 +365,7 @@ namespace Example
             this.toolStripButtonShowPlusMinus.Image = global::Example.Properties.Resources.system_save_alt;
             this.toolStripButtonShowPlusMinus.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonShowPlusMinus.Name = "toolStripButtonShowPlusMinus";
-            this.toolStripButtonShowPlusMinus.Size = new System.Drawing.Size(217, 36);
+            this.toolStripButtonShowPlusMinus.Size = new System.Drawing.Size(111, 22);
             this.toolStripButtonShowPlusMinus.Text = "ShowPlusMinus";
             this.toolStripButtonShowPlusMinus.Click += new System.EventHandler(this.toolStripButtonShowPlusMinus_Click);
             // 
@@ -380,7 +375,7 @@ namespace Example
             this.toolStripButtonShowBranchesAsHeaders.Image = global::Example.Properties.Resources.table_column_alt;
             this.toolStripButtonShowBranchesAsHeaders.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonShowBranchesAsHeaders.Name = "toolStripButtonShowBranchesAsHeaders";
-            this.toolStripButtonShowBranchesAsHeaders.Size = new System.Drawing.Size(316, 36);
+            this.toolStripButtonShowBranchesAsHeaders.Size = new System.Drawing.Size(160, 22);
             this.toolStripButtonShowBranchesAsHeaders.Text = "ShowBranchesAsHeaders";
             this.toolStripButtonShowBranchesAsHeaders.Click += new System.EventHandler(this.toolStripButtonShowBranchesAsHeaders_Click);
             // 
@@ -394,7 +389,7 @@ namespace Example
             this.toolStripSplitButtonSort.Image = global::Example.Properties.Resources.notepad;
             this.toolStripSplitButtonSort.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButtonSort.Name = "toolStripSplitButtonSort";
-            this.toolStripSplitButtonSort.Size = new System.Drawing.Size(116, 36);
+            this.toolStripSplitButtonSort.Size = new System.Drawing.Size(60, 22);
             this.toolStripSplitButtonSort.Text = "Sort";
             this.toolStripSplitButtonSort.ButtonClick += new System.EventHandler(this.toolStripSplitButtonSort_ButtonClick);
             // 
@@ -403,7 +398,7 @@ namespace Example
             this.descendingToolStripMenuItem.CheckOnClick = true;
             this.descendingToolStripMenuItem.Image = global::Example.Properties.Resources.sort_desc_alt;
             this.descendingToolStripMenuItem.Name = "descendingToolStripMenuItem";
-            this.descendingToolStripMenuItem.Size = new System.Drawing.Size(273, 44);
+            this.descendingToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.descendingToolStripMenuItem.Text = "Descending";
             this.descendingToolStripMenuItem.Click += new System.EventHandler(this.descendingToolStripMenuItem_Click);
             // 
@@ -412,7 +407,7 @@ namespace Example
             this.ascendingToolStripMenuItem.CheckOnClick = true;
             this.ascendingToolStripMenuItem.Image = global::Example.Properties.Resources.sort_asc;
             this.ascendingToolStripMenuItem.Name = "ascendingToolStripMenuItem";
-            this.ascendingToolStripMenuItem.Size = new System.Drawing.Size(273, 44);
+            this.ascendingToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.ascendingToolStripMenuItem.Text = "Ascending";
             this.ascendingToolStripMenuItem.Click += new System.EventHandler(this.ascendingToolStripMenuItem_Click);
             // 
@@ -421,7 +416,7 @@ namespace Example
             this.randomToolStripMenuItem.CheckOnClick = true;
             this.randomToolStripMenuItem.Image = global::Example.Properties.Resources.system_question_alt;
             this.randomToolStripMenuItem.Name = "randomToolStripMenuItem";
-            this.randomToolStripMenuItem.Size = new System.Drawing.Size(273, 44);
+            this.randomToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.randomToolStripMenuItem.Text = "Random";
             this.randomToolStripMenuItem.Click += new System.EventHandler(this.randomToolStripMenuItem_Click);
             // 
@@ -430,7 +425,7 @@ namespace Example
             this.unsortedToolStripMenuItem.CheckOnClick = true;
             this.unsortedToolStripMenuItem.Image = global::Example.Properties.Resources.form_reset;
             this.unsortedToolStripMenuItem.Name = "unsortedToolStripMenuItem";
-            this.unsortedToolStripMenuItem.Size = new System.Drawing.Size(273, 44);
+            this.unsortedToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.unsortedToolStripMenuItem.Text = "Unsorted";
             this.unsortedToolStripMenuItem.Click += new System.EventHandler(this.unsortedToolStripMenuItem_Click);
             // 
@@ -440,7 +435,7 @@ namespace Example
             this.toolStripButtonHotTracking.Image = global::Example.Properties.Resources.link;
             this.toolStripButtonHotTracking.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonHotTracking.Name = "toolStripButtonHotTracking";
-            this.toolStripButtonHotTracking.Size = new System.Drawing.Size(177, 36);
+            this.toolStripButtonHotTracking.Size = new System.Drawing.Size(91, 22);
             this.toolStripButtonHotTracking.Text = "HotTracking";
             this.toolStripButtonHotTracking.Click += new System.EventHandler(this.toolStripButtonHotTracking_Click);
             // 
@@ -450,19 +445,18 @@ namespace Example
             this.toolStripButtonShowGrid.Image = global::Example.Properties.Resources.table;
             this.toolStripButtonShowGrid.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonShowGrid.Name = "toolStripButtonShowGrid";
-            this.toolStripButtonShowGrid.Size = new System.Drawing.Size(152, 36);
+            this.toolStripButtonShowGrid.Size = new System.Drawing.Size(78, 22);
             this.toolStripButtonShowGrid.Text = "ShowGrid";
             this.toolStripButtonShowGrid.Click += new System.EventHandler(this.toolStripButtonShowGrid_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1774, 1329);
+            this.ClientSize = new System.Drawing.Size(887, 530);
             this.Controls.Add(this.toolStripMain);
             this.Controls.Add(this.tabControl);
             this.HelpButton = true;
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
