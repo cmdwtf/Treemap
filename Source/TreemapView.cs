@@ -54,15 +54,16 @@ namespace cmdwtf.Treemap
 			CheckBoxes = 0x0002_0000,
 			RightToLeft = 0x0004_0000,
 			ShowBranchesAsHeaders = 0x0008_0000,
+			ShowModernPlusMinusGlyphs = 0x0010_0000,
 
 			// behavior
-			LabelEdit = 0x0010_0000,
-			HotTracking = 0x0020_0000,
-			HideSelection = 0x0040_0000,
-			Sorted = 0x0080_0000,
-			ShowPlusMinus = 0x0100_0000,
-			ShowNodeToolTips = 0x0200_0000,
-			FullBranchSelect = 0x0400_0000,
+			LabelEdit = 0x0020_0000,
+			HotTracking = 0x0040_0000,
+			HideSelection = 0x0080_0000,
+			Sorted = 0x0100_0000,
+			ShowPlusMinus = 0x0200_0000,
+			ShowNodeToolTips = 0x0400_0000,
+			FullBranchSelect = 0x0800_0000,
 
 			#endregion Property States
 		}
@@ -119,6 +120,7 @@ namespace cmdwtf.Treemap
 			// property states
 			_state[States.ShowGrid] = true;
 			_state[States.ShowBranchesAsHeaders] = true;
+			_state[States.ShowModernPlusMinusGlyphs] = true;
 			_state[States.HideSelection] = true;
 			_state[States.Sorted] = true;
 			_state[States.FullBranchSelect] = true;
@@ -329,6 +331,24 @@ namespace cmdwtf.Treemap
 			get => _state[States.RightToLeft];
 			[InvalidatesControl]
 			set => _state[States.RightToLeft] = value;
+		}
+
+		/// <summary>
+		/// Gets or sets a value that indicates whether the <see cref="TreemapView"/>
+		/// should use the modern PlusMinus ("Expando") glyphs or not.
+		/// </summary>
+		/// <returns>
+		/// true if the control should render PlusMinus glyphs using the modern system renderer.
+		/// The default is true.
+		/// </returns>
+		[DefaultValue(true)]
+		[Localizable(true)]
+		[Category(Categories.Appearance)]
+		public virtual bool UseModernPlusMinusGlyphs
+		{
+			get => _state[States.ShowModernPlusMinusGlyphs];
+			[InvalidatesControl]
+			set => _state[States.ShowModernPlusMinusGlyphs] = value;
 		}
 
 		#endregion TreemapView Appearance Properties

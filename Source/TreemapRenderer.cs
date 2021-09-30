@@ -10,6 +10,7 @@ using static cmdwtf.Toolkit.WinForms.VisualStyleRendererCacheExtensions;
 
 using CheckBoxState = System.Windows.Forms.VisualStyles.CheckBoxState;
 using ContentAlignment = System.Drawing.ContentAlignment;
+using VisualStyleElement = System.Windows.Forms.VisualStyles.VisualStyleElement;
 using VisualStyleRendererCache = cmdwtf.Toolkit.WinForms.VisualStyleRendererCache;
 
 namespace cmdwtf.Treemap
@@ -657,26 +658,37 @@ namespace cmdwtf.Treemap
 
 			if (node.IsCollapsed)
 			{
-				VisualStyleRenderer plusRenderer =
-#if USE_CLASSIC_PLUSMINUS_GLYPHS
-				VisualStyleElement.TreeView.Glyph.Closed.GetCachedRenderer();
-#else
-					node.IsMouseOverPlusMinus
-					? CustomVisualStyleElement.ExplorerTreeView.Glyph.Hover.Closed.GetRenderer(_vsrCache)
-					: CustomVisualStyleElement.ExplorerTreeView.Glyph.Normal.Closed.GetRenderer(_vsrCache);
-#endif // USE_CLASSIC_PLUSMINUS_GLYPHS
+				VisualStyleRenderer? plusRenderer;
+
+				if (view.UseModernPlusMinusGlyphs)
+				{
+					plusRenderer =
+						node.IsMouseOverPlusMinus
+						? CustomVisualStyleElement.ExplorerTreeView.Glyph.Hover.Closed.GetRenderer(_vsrCache)
+						: CustomVisualStyleElement.ExplorerTreeView.Glyph.Normal.Closed.GetRenderer(_vsrCache);
+				}
+				else
+				{
+					plusRenderer = VisualStyleElement.TreeView.Glyph.Closed.GetRenderer(_vsrCache);
+				}
+
 				plusRenderer.DrawBackground(graphics, glyphRect);
 			}
 			else
 			{
-				VisualStyleRenderer minusRenderer =
-#if USE_CLASSIC_PLUSMINUS_GLYPHS
-					VisualStyleElement.TreeView.Glyph.Opened.GetCachedRenderer();
-#else
-					node.IsMouseOverPlusMinus
-					? CustomVisualStyleElement.ExplorerTreeView.Glyph.Hover.Opened.GetRenderer(_vsrCache)
-					: CustomVisualStyleElement.ExplorerTreeView.Glyph.Normal.Opened.GetRenderer(_vsrCache);
-#endif // USE_CLASSIC_PLUSMINUS_GLYPHS
+				VisualStyleRenderer? minusRenderer;
+
+				if (view.UseModernPlusMinusGlyphs)
+				{
+					minusRenderer = node.IsMouseOverPlusMinus
+						? CustomVisualStyleElement.ExplorerTreeView.Glyph.Hover.Opened.GetRenderer(_vsrCache)
+						: CustomVisualStyleElement.ExplorerTreeView.Glyph.Normal.Opened.GetRenderer(_vsrCache);
+				}
+				else
+				{
+					minusRenderer = VisualStyleElement.TreeView.Glyph.Opened.GetRenderer(_vsrCache);
+				}
+
 				minusRenderer.DrawBackground(graphics, glyphRect);
 			}
 		}

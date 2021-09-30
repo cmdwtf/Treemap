@@ -60,7 +60,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="cmdwtf.Toolkit.WinForms" Version="0.28.0" />
+    <PackageReference Include="cmdwtf.Toolkit.WinForms" Version="0.29.0" />
     <PackageReference Include="Lazy.Fody" Version="1.9.0" PrivateAssets="All" />
     <PackageReference Include="MethodDecorator.Fody" Version="1.1.1" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
