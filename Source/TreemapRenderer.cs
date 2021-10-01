@@ -11,6 +11,8 @@ using static cmdwtf.Toolkit.WinForms.VisualStyleRendererCacheExtensions;
 using CheckBoxState = System.Windows.Forms.VisualStyles.CheckBoxState;
 using ContentAlignment = System.Drawing.ContentAlignment;
 using CustomVisualStyleElement = cmdwtf.Toolkit.WinForms.VisualStyleElement;
+//using ItemRenderers = cmdwtf.Toolkit.WinForms.VisualStyleElement.ExplorerTreeView.TreeItem;
+using ItemRenderers = cmdwtf.Toolkit.WinForms.VisualStyleElement.ExplorerListView.ListItem;
 using VisualStyleElement = System.Windows.Forms.VisualStyles.VisualStyleElement;
 using VisualStyleRendererCache = cmdwtf.Toolkit.WinForms.VisualStyleRendererCache;
 
@@ -177,6 +179,40 @@ namespace cmdwtf.Treemap
 		}
 
 		/// <summary>
+		/// Gets a <see cref="VisualStyleRenderer"/> based on the
+		/// <see cref="TreemapNode"/>'s selection state and the
+		/// <see cref="TreemapView"/>'s properties.
+		/// </summary>
+		/// <param name="node">The <see cref="TreemapNode"/> to use.</param>
+		/// <param name="view">The <see cref="TreemapView"/> to use the properties of.</param>
+		/// <returns>A <see cref="VisualStyleRenderer"/> for the state of the node, or null if the node is in a 'normal' state.</returns>
+		private static VisualStyleRenderer? GetSelectionRenderer(this TreemapNode node, TreemapView view)
+		{
+			if (node.IsSelectedInHirearchy && node.IsHotTracking && view.Focused)
+			{
+				return ItemRenderers.HotSelected.GetRenderer(_vsrCache);
+			}
+			else if (node.IsSelectedInHirearchy && !view.Focused)
+			{
+				return ItemRenderers.SelectedNotFocus.GetRenderer(_vsrCache);
+			}
+			else if (view.Enabled == false)
+			{
+				return ItemRenderers.Disabled.GetRenderer(_vsrCache);
+			}
+			else if (node.IsSelectedInHirearchy && view.Focused)
+			{
+				return ItemRenderers.Selected.GetRenderer(_vsrCache);
+			}
+			else if (node.IsHotTracking)
+			{
+				return ItemRenderers.Hot.GetRenderer(_vsrCache);
+			}
+
+			return null;
+		}
+
+		/// <summary>
 		/// Gets a <see cref="Color"/> based on the given color.
 		/// </summary>
 		/// <param name="node">The <see cref="TreemapNode"/> to use.</param>
@@ -190,13 +226,23 @@ namespace cmdwtf.Treemap
 		/// </returns>
 		private static Color GetSelectionModifiedColor(this TreemapNode node, TreemapView view, Color baseColor)
 		{
-			if (node.IsSelectedInHirearchy && (!view.HideSelection || view.Focused))
+			if (node.ShouldShowSelected(view))
 			{
 				return ControlPaint.Light(baseColor);
 			}
 
 			return baseColor;
 		}
+
+		/// <summary>
+		/// Returns true if the <see cref="TreemapNode"/> is selected, and the
+		/// <see cref="TreemapView"/> is focused, and hide selection is disabled.
+		/// </summary>
+		/// <param name="node">The node to check.</param>
+		/// <param name="view">The view the node belongs to.</param>
+		/// <returns><c>true</c> if this node should be displayed as selected.</returns>
+		private static bool ShouldShowSelected(this TreemapNode node, TreemapView view)
+			=> node.IsSelectedInHirearchy && (!view.HideSelection || view.Focused);
 
 		/// <summary>
 		/// Gets (or creates and caches) a <see cref="Font"/> with the <see cref="FontStyle.Underline"/>
@@ -438,6 +484,15 @@ namespace cmdwtf.Treemap
 
 			graphics.DrawString(node.Text, headerFont, headerTextBrush, headerBounds, format);
 			graphics.DrawNodeImage(ctx, headerBounds);
+
+#if NODE_RENDERING_USE_SYSTEM_SELECTION_RENDERER
+			// draw selection as an overlay.
+			VisualStyleRenderer? r = node.GetSelectionRenderer(view);
+			if (r is not null)
+			{
+				r.DrawBackground(graphics, Rectangle.Round(headerBounds));
+			}
+#endif // NODE_RENDERING_USE_SYSTEM_SELECTION_RENDERER
 		}
 
 		/// <summary>
@@ -526,6 +581,15 @@ namespace cmdwtf.Treemap
 
 			graphics.DrawString(node.Text, nodeFont, textBrush, paddedBounds, format);
 			graphics.DrawNodeImage(ctx, paddedBounds);
+
+#if NODE_RENDERING_USE_SYSTEM_SELECTION_RENDERER
+			// draw selection as an overlay.
+			VisualStyleRenderer? r = node.GetSelectionRenderer(view);
+			if (r is not null)
+			{
+				r.DrawBackground(graphics, Rectangle.Round(paddedBounds));
+			}
+#endif // NODE_RENDERING_USE_SYSTEM_SELECTION_RENDERER
 		}
 
 		/// <summary>
@@ -547,7 +611,13 @@ namespace cmdwtf.Treemap
 				return;
 			}
 
-			Color fillColor = node.GetSelectionModifiedColor(view, backColor);
+			Color fillColor =
+#if NODE_RENDERING_USE_SYSTEM_SELECTION_RENDERER
+				node.GetSelectionModifiedColor(view, backColor);
+#else
+				backColor;
+#endif // NODE_RENDERING_USE_SYSTEM_SELECTION_RENDERER
+
 			Color highlightColor = ControlPaint.Light(fillColor);
 
 			switch (style)

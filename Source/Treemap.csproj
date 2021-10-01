@@ -11,6 +11,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentation>true</GenerateDocumentation>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DefineConstants>$(DefineConstants)TRACE;NODE_RENDERING_USE_SYSTEM_SELECTION_RENDERER</DefineConstants>
 
     <!-- Core Project Settings -->
     <RootNamespace>cmdwtf.Treemap</RootNamespace>
@@ -45,7 +46,6 @@
     <IncludeSymbols>true</IncludeSymbols>
     <DebugType>embedded</DebugType>
   </PropertyGroup>
-
   <ItemGroup>
     <Content Include="$(ProjectDir)..\.meta\$(PackageIcon)" Visible="false">
       <PackagePath>.\</PackagePath>

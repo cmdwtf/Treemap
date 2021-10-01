@@ -566,15 +566,15 @@ namespace cmdwtf.Treemap
 		/// Gets or sets the background color of a <see cref="TreemapNode"/> branch (header).
 		/// </summary>
 		/// <returns>
-		/// The background <see cref="Color"/> of a <see cref="TreemapNode"/>. The default is <see cref="SystemColors.ControlDark"/>.
+		/// The background <see cref="Color"/> of a <see cref="TreemapNode"/>. The default is <see cref="SystemColors.ControlLight"/>.
 		/// </returns>
 		/// <remarks>
 		/// This value can be overridden by individual <see cref="TreemapNode"/>s using the
 		/// <see cref="TreemapNode.BranchBackColor"/> property.
 		/// </remarks>
 		[Category(Categories.AppearanceNode)]
-		[DefaultValue(typeof(Color), nameof(SystemColors.ControlDark))]
-		public virtual Color NodeBranchBackColor { get; [InvalidatesControl] set; } = SystemColors.ControlDark;
+		[DefaultValue(typeof(Color), nameof(SystemColors.ControlLight))]
+		public virtual Color NodeBranchBackColor { get; [InvalidatesControl] set; } = SystemColors.ControlLight;
 
 		/// <summary>
 		/// Gets or sets the alignment of an image that is displayed in the control.
