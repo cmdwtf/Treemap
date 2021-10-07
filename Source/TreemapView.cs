@@ -872,19 +872,19 @@ namespace cmdwtf.Treemap
 		/// An image indexer for the default image for a <see cref="TreemapNode"/>.
 		/// </summary>
 		[Lazy]
-		internal ImageIndexer ImageIndexer { get; } = new();
+		internal ImageIndexer ImageIndexer => new();
 
 		/// <summary>
 		/// An image indexer for the default image for a <see cref="TreemapNode"/>.
 		/// </summary>
 		[Lazy]
-		internal ImageIndexer SelectedImageIndexer { get; } = new();
+		internal ImageIndexer SelectedImageIndexer => new();
 
 		/// <summary>
 		/// An indexer for the image for a <see cref="TreemapNode"/> when the node is displaying it's checked state.
 		/// </summary>
 		[Lazy]
-		internal ImageIndexer StateImageIndexer { get; } = new();
+		internal ImageIndexer StateImageIndexer => new();
 
 		/// <summary>
 		/// Gets or sets the image list that is used to indicate the state of the <see cref="TreemapView"/>
