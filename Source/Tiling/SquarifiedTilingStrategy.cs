@@ -27,18 +27,7 @@ namespace cmdwtf.Treemap.Tiling
 				throw new ArgumentException($"{nameof(RecalculateBounds)} expects the node given to have a non-null {nameof(node.TreemapView)}");
 			}
 
-			if (node.IsBranch && node.IsCollapsed)
-			{
-				newBounds.Height = node.GetBranchHeaderHeight(view);
-#if TREEMAP_NODE_MAX_COLLAPSE
-				// #COLLAPSING -- reduce newBounds.Width to the bare minimum for this branch?
-				int contentWidth = 30;
-				int plusMinusWidth = view.PlusMinusGlyphSizePixelsDevice(padded: true);
-				int checkboxWidth = TreemapRenderer.LastCheckBoxGlyphSize.Width + TreemapRenderer.LastCheckboxPadding;
-				int totalWidth = contentWidth + plusMinusWidth + checkboxWidth;
-				newBounds.Width = totalWidth;
-#endif // TREEMAP_NODE_MAX_COLLAPSE
-			}
+			HandleCollapsedBranchHeight(node, view, ref newBounds);
 
 			// apply the margin if we're a branch.
 			node.BoundsF = node.IsBranch

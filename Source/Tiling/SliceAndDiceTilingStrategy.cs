@@ -2,6 +2,8 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
+using cmdwtf.Toolkit.WinForms;
+
 namespace cmdwtf.Treemap.Tiling
 {
 	internal class SliceAndDiceTilingStrategy : RectangleTilingStrategyBase
@@ -50,22 +52,22 @@ namespace cmdwtf.Treemap.Tiling
 			float childPercentage = parent == null ? 1.0f : node.Area / parent.Area;
 
 			Orientation nextOrientation;
-			SizeF newSize = SizeF.Empty;
+			RectangleF newBounds = new RectangleF(node.BoundsF.Location, SizeF.Empty);
 			Func<TreemapNode, float> getOffsetForChild;
 
 
 			if (orientation == Orientation.Horizontal)
 			{
 				nextOrientation = Orientation.Vertical;
-				newSize.Width = width * childPercentage;
-				newSize.Height = height;
+				newBounds.Width = width * childPercentage;
+				newBounds.Height = height;
 				getOffsetForChild = n => n.BoundsF.Height;
 			}
 			else if (orientation == Orientation.Vertical)
 			{
 				nextOrientation = Orientation.Horizontal;
-				newSize.Width = width;
-				newSize.Height = height * childPercentage;
+				newBounds.Width = width;
+				newBounds.Height = height * childPercentage;
 				getOffsetForChild = n => n.BoundsF.Width;
 			}
 			else
@@ -73,7 +75,15 @@ namespace cmdwtf.Treemap.Tiling
 				throw new Exception();
 			}
 
-			node.BoundsF = new RectangleF(node.BoundsF.Location, newSize);
+			// apply the margin if we're a branch.
+			newBounds = node.IsBranch
+				? newBounds.ApplyPadding(node.BranchMargin ?? view.NodeBranchMargin)
+				: newBounds;
+
+
+			HandleCollapsedBranchHeight(node, view, ref newBounds);
+
+			node.BoundsF = newBounds;
 
 			float totalOffset = 0;
 
@@ -92,7 +102,15 @@ namespace cmdwtf.Treemap.Tiling
 					childPosition.Y = node.BoundsF.Y + headerHeight;
 				}
 
-				child.BoundsF = new RectangleF(childPosition, newSize);
+				// collapsed branch nodes don't show their children,
+				// so squish em down to nothing.
+				if (node.IsBranch && node.IsCollapsed)
+				{
+					child.BoundsF = RectangleF.Empty;
+					continue;
+				}
+
+				child.BoundsF = new RectangleF(childPosition, newBounds.Size);
 				SliceAndDice(child, node, nextOrientation);
 				totalOffset += getOffsetForChild(child);
 			}

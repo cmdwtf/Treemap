@@ -29,5 +29,21 @@ namespace cmdwtf.Treemap.Tiling
 				child.Area = node.Area * childValuePercentage;
 			}
 		}
+
+		internal static void HandleCollapsedBranchHeight(TreemapNode node, TreemapView view, ref RectangleF newBounds)
+		{
+			if (node.IsBranch && node.IsCollapsed)
+			{
+				newBounds.Height = node.GetBranchHeaderHeight(node.TreemapView);
+#if TREEMAP_NODE_MAX_COLLAPSE
+				// #COLLAPSING -- reduce newBounds.Width to the bare minimum for this branch?
+				int contentWidth = 30;
+				int plusMinusWidth = view.PlusMinusGlyphSizePixelsDevice(padded: true);
+				int checkboxWidth = TreemapRenderer.LastCheckBoxGlyphSize.Width + TreemapRenderer.LastCheckboxPadding;
+				int totalWidth = contentWidth + plusMinusWidth + checkboxWidth;
+				newBounds.Width = totalWidth;
+#endif // TREEMAP_NODE_MAX_COLLAPSE
+			}
+		}
 	}
 }
