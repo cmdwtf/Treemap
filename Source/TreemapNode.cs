@@ -28,7 +28,7 @@ namespace cmdwtf.Treemap
 		/// <summary>
 		/// The amount of in-treemap area this <see cref="TreemapNode"/> consumes.
 		/// </summary>
-		public float Area { get; private set; }
+		public float Area { get; internal set; }
 
 		/// <summary>
 		/// A default value to be used if this node is a leaf, and doesn't have a value otherwise set.
@@ -1014,7 +1014,7 @@ namespace cmdwtf.Treemap
 		/// The <see cref="RectangleF"/> that represents the bounds of the <see cref="TreemapNode"/>.
 		/// </returns>
 		[Browsable(false)]
-		public RectangleF BoundsF { get; private set; } = RectangleF.Empty;
+		public RectangleF BoundsF { get; internal set; } = RectangleF.Empty;
 
 		/// <summary>
 		/// Gets or sets the shortcut menu associated with this <see cref="TreemapNode"/>.

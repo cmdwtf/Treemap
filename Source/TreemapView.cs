@@ -2316,7 +2316,7 @@ namespace cmdwtf.Treemap
 				Sort();
 			}
 
-			_topNode.RecalculateBounds(this, RectangleF.FromLTRB(0, 0, Width - 1, Height - 1));
+			_topNode.ReTile(RectangleF.FromLTRB(0, 0, Width - 1, Height - 1));
 		}
 
 		/// <summary>
