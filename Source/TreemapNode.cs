@@ -1497,7 +1497,6 @@ namespace cmdwtf.Treemap
 			string pathSep = _defaultPathSeparator;
 			TreemapNode? target = this;
 			Stack<string> steps = new();
-			steps.Push(Name);
 
 			while (target != null)
 			{
