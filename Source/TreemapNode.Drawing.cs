@@ -245,11 +245,6 @@ namespace cmdwtf.Treemap
 		#region Calculated Layout Properties
 
 		/// <summary>
-		/// The entire 'empty' area of the node, calculated and used in layout.
-		/// </summary>
-		private RectangleF EmptyArea { get; set; } = RectangleF.Empty;
-
-		/// <summary>
 		/// The area of the node which is occupied by the image, if any.
 		/// </summary>
 		internal RectangleF ImageArea { get; set; } = RectangleF.Empty;
@@ -343,7 +338,8 @@ namespace cmdwtf.Treemap
 
 		internal void ReTile(RectangleF newBounds)
 		{
-			Tiling.Strategies.Squarified.RecalculateBounds(this, newBounds);
+			//Tiling.Strategies.Squarified.RecalculateBounds(this, newBounds);
+			Tiling.Strategies.SliceAndDice.RecalculateBounds(this, newBounds);
 		}
 
 		#endregion Tiling

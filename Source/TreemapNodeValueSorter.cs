@@ -2,9 +2,14 @@ using System;
 
 namespace cmdwtf.Treemap
 {
+	/// <summary>
+	/// A <see cref="TreemapNode"/> sorter that sorts
+	/// by <see cref="TreemapNode.Value"/>, based on the
+	/// <see cref="TreemapView"/> given to the sorter's
+	/// <see cref="TreemapView.ValueMode"/>.
+	/// </summary>
 	public class TreemapNodeValueSorter : TreemapNodeSorter
 	{
-
 		/// <summary>
 		/// A thunk to get the current value for the <see cref="TreemapNode"/>
 		/// </summary>

@@ -138,7 +138,7 @@ namespace cmdwtf.Treemap.Tiling
 		/// License: CC BY-SA 3.0
 		/// Original work: https://stackoverflow.com/a/37243686
 		/// </remarks>
-		private void ComputeTreeMaps(IEnumerable<TreemapNode> nodes, ref RectangleF workingArea)
+		private static void ComputeTreeMaps(IEnumerable<TreemapNode> nodes, ref RectangleF workingArea)
 		{
 			RowOrientation orientation = GetOrientation(workingArea);
 

@@ -15,6 +15,7 @@ namespace cmdwtf.Treemap.Tiling
 
 		internal static float CalculateNodeArea(IEnumerable<TreemapNode> nodes)
 			=> nodes.Sum(child => child.Area);
+
 		internal static void RecalculateChildAreas(TreemapNode node, TreemapView view)
 		{
 			node.Area = node.BoundsF.Width * node.BoundsF.Height;

@@ -1,5 +1,9 @@
 namespace cmdwtf.Treemap
 {
+	/// <summary>
+	/// A <see cref="TreemapNode"/> sorter that sorts by
+	/// <see cref="TreemapNode.Name"/>.
+	/// </summary>
 	public class TreemapNodeNameSorter : TreemapNodeSorter
 	{
 		/// <summary>
