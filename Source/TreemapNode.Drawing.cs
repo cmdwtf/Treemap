@@ -338,8 +338,7 @@ namespace cmdwtf.Treemap
 
 		internal void ReTile(RectangleF newBounds)
 		{
-			//Tiling.Strategies.Squarified.RecalculateBounds(this, newBounds);
-			Tiling.Strategies.SliceAndDice.RecalculateBounds(this, newBounds);
+			Tiling.Strategies.Squarified.RecalculateBounds(this, newBounds);
 		}
 
 		#endregion Tiling
