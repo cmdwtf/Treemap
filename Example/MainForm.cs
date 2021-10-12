@@ -18,6 +18,8 @@ namespace Example
 		{
 			TreemapNodeSorters.Descending,
 			TreemapNodeSorters.Ascending,
+			TreemapNodeSorters.DescendingName,
+			TreemapNodeSorters.AscendingName,
 			TreemapNodeSorters.Random,
 			TreemapNodeSorters.Unsorted,
 		};
@@ -184,8 +186,10 @@ namespace Example
 
 		private void UpdateSortChecked(TreemapView target)
 		{
-			ascendingToolStripMenuItem.Checked = target.TreemapViewNodeSorter == TreemapNodeSorters.Ascending;
 			descendingToolStripMenuItem.Checked = target.TreemapViewNodeSorter == TreemapNodeSorters.Descending;
+			ascendingToolStripMenuItem.Checked = target.TreemapViewNodeSorter == TreemapNodeSorters.Ascending;
+			descendingNameToolStripMenuItem.Checked = target.TreemapViewNodeSorter == TreemapNodeSorters.DescendingName;
+			ascendingNameToolStripMenuItem.Checked = target.TreemapViewNodeSorter == TreemapNodeSorters.AscendingName;
 			randomToolStripMenuItem.Checked = target.TreemapViewNodeSorter == TreemapNodeSorters.Random;
 			unsortedToolStripMenuItem.Checked = target.TreemapViewNodeSorter == TreemapNodeSorters.Unsorted;
 		}
@@ -248,15 +252,27 @@ namespace Example
 			UpdateSortChecked(_toolStripTarget);
 		}
 
+		private void descendingToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			_toolStripTarget.TreemapViewNodeSorter = TreemapNodeSorters.Descending;
+			UpdateSortChecked(_toolStripTarget);
+		}
+
 		private void ascendingToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			_toolStripTarget.TreemapViewNodeSorter = TreemapNodeSorters.Ascending;
 			UpdateSortChecked(_toolStripTarget);
 		}
 
-		private void descendingToolStripMenuItem_Click(object sender, EventArgs e)
+		private void descendingNameToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			_toolStripTarget.TreemapViewNodeSorter = TreemapNodeSorters.Descending;
+			_toolStripTarget.TreemapViewNodeSorter = TreemapNodeSorters.DescendingName;
+			UpdateSortChecked(_toolStripTarget);
+		}
+
+		private void ascendingNameToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			_toolStripTarget.TreemapViewNodeSorter = TreemapNodeSorters.AscendingName;
 			UpdateSortChecked(_toolStripTarget);
 		}
 

@@ -146,7 +146,7 @@ namespace cmdwtf.Treemap
 				RaiseDrawPlusMinusGlyph = OnDrawNodePlusMinus,
 			};
 
-			_treemapViewNodeSorter ??= new TreemapNodeSorter(this);
+			_treemapViewNodeSorter ??= new TreemapNodeValueSorter(this);
 
 			ImageIndexer.Index = 0;
 			SelectedImageIndexer.Index = 0;
@@ -769,7 +769,7 @@ namespace cmdwtf.Treemap
 			[InvalidatesControl, ForcesReTile]
 			set
 			{
-				_treemapViewNodeSorter = value ?? new TreemapNodeSorter(this);
+				_treemapViewNodeSorter = value ?? new TreemapNodeValueSorter(this);
 			}
 		}
 

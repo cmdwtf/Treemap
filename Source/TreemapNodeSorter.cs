@@ -5,9 +5,12 @@ using System.Collections.Generic;
 namespace cmdwtf.Treemap
 {
 	/// <summary>
-	/// A class that will sort <see cref="TreemapNode"/>s by the difference in their values.
+	/// A class that will sort <see cref="TreemapNode"/>s by the comparison
+	/// function provided to it. This class is intended to be overriden. If you
+	/// were using this in a prior revision of the control, you now want
+	/// to use <see cref="TreemapNodeValueSorter"/>.
 	/// </summary>
-	public class TreemapNodeSorter : IComparer, IComparer<TreemapNode>
+	public abstract class TreemapNodeSorter : IComparer, IComparer<TreemapNode>
 	{
 		/// <summary>
 		/// If true, will sort in an ascending order (least to greatest)
@@ -25,36 +28,25 @@ namespace cmdwtf.Treemap
 		private int AscendingOne => Ascending ? 1 : -1;
 
 		/// <summary>
-		/// A thunk to get the current value for the <see cref="TreemapNode"/>
-		/// </summary>
-		private Func<TreemapNode?, float> _valueFunc;
-
-		/// <summary>
 		/// Creates a new instance of <see cref="TreemapNodeSorter"/>
 		/// using a default value retrieval function.
 		/// </summary>
 		public TreemapNodeSorter()
 		{
-			_valueFunc = node => node?.Value ?? 0;
+
 		}
 
 		/// <summary>
-		/// Creates a new instance of <see cref="TreemapNodeSorter"/>
-		/// using a value retrieval function that uses the given view's mode.
+		/// A delegate representing a comparison between two <see cref="TreemapNode"/>s.
 		/// </summary>
-		/// <param name="view">The view to use.</param>
-		public TreemapNodeSorter(TreemapView view) : this()
-		{
-			SetView(view);
-		}
-
-		/// <summary>
-		/// Sets the <see cref="TreemapView"/> used to
-		/// get the node's value based on <see cref="TreemapView.ValueMode"/>
-		/// </summary>
-		/// <param name="view">The view to use.</param>
-		public void SetView(TreemapView view)
-			=> _valueFunc = node => view.GetNodeValueForCurrentMode(node);
+		/// <param name="lhs">The left hand side to compare.</param>
+		/// <param name="rhs">The right hand side to compare.</param>
+		/// <returns>
+		/// Less than zero if the left hand has a smaller representation,
+		/// Greater than zero if the right hand has a smaller representation.
+		/// Zero if both sides are equal.
+		/// </returns>
+		protected abstract float CompareNodes(TreemapNode? lhs, TreemapNode? rhs);
 
 		/// <summary>
 		/// Compares two <see cref="TreemapNode"/>s.
@@ -69,7 +61,7 @@ namespace cmdwtf.Treemap
 		/// The negative one and positive one are inverted if <see cref="Descending"/> is true.
 		/// </returns>
 		public int Compare(TreemapNode? x, TreemapNode? y)
-			=> (_valueFunc(x) - _valueFunc(y)) switch
+			=> CompareNodes(x, y) switch
 			{
 				< 0 => -AscendingOne,
 				> 0 => AscendingOne,

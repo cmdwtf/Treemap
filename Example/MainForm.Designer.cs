@@ -69,6 +69,8 @@ namespace Example
             this.unsortedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButtonHotTracking = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonShowGrid = new System.Windows.Forms.ToolStripButton();
+            this.descendingNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ascendingNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl.SuspendLayout();
             this.tabPageTreemapView.SuspendLayout();
             this.tabPageTreeView.SuspendLayout();
@@ -449,6 +451,24 @@ namespace Example
             this.toolStripButtonShowGrid.Text = "ShowGrid";
             this.toolStripButtonShowGrid.Click += new System.EventHandler(this.toolStripButtonShowGrid_Click);
             // 
+            // descendingNameToolStripMenuItem
+            // 
+            this.descendingNameToolStripMenuItem.CheckOnClick = true;
+            this.descendingNameToolStripMenuItem.Image = global::Example.Properties.Resources.sort_desc_alt;
+            this.descendingNameToolStripMenuItem.Name = "descendingNameToolStripMenuItem";
+            this.descendingNameToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.descendingNameToolStripMenuItem.Text = "Descending Name";
+            this.descendingNameToolStripMenuItem.Click += new System.EventHandler(this.descendingNameToolStripMenuItem_Click);
+            // 
+            // ascendingNameToolStripMenuItem
+            // 
+            this.ascendingNameToolStripMenuItem.CheckOnClick = true;
+            this.ascendingNameToolStripMenuItem.Image = global::Example.Properties.Resources.sort_asc;
+            this.ascendingNameToolStripMenuItem.Name = "ascendingNameToolStripMenuItem";
+            this.ascendingNameToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.ascendingNameToolStripMenuItem.Text = "Ascending Name";
+            this.ascendingNameToolStripMenuItem.Click += new System.EventHandler(this.ascendingNameToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -508,6 +528,8 @@ namespace Example
 		private System.Windows.Forms.ToolStripMenuItem unsortedToolStripMenuItem;
 		private System.Windows.Forms.ToolStripButton toolStripButtonHotTracking;
 		private System.Windows.Forms.ToolStripButton toolStripButtonShowGrid;
+		private System.Windows.Forms.ToolStripMenuItem ascendingNameToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem descendingNameToolStripMenuItem;
 	}
 }
 

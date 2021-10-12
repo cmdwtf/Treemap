@@ -45,8 +45,10 @@ namespace Example
 		}
 
 		public static UnsortedSorter Unsorted { get; } = new UnsortedSorter();
-		public static TreemapNodeSorter Ascending { get; } = new TreemapNodeSorter() { Ascending = true };
-		public static TreemapNodeSorter Descending { get; } = new TreemapNodeSorter() { Descending = true };
+		public static TreemapNodeValueSorter Ascending { get; } = new TreemapNodeValueSorter() { Ascending = true };
+		public static TreemapNodeValueSorter Descending { get; } = new TreemapNodeValueSorter() { Descending = true };
+		public static TreemapNodeNameSorter AscendingName { get; } = new TreemapNodeNameSorter() { Ascending = true };
+		public static TreemapNodeNameSorter DescendingName { get; } = new TreemapNodeNameSorter() { Descending = true };
 		public static RandomNodeSorter Random { get; } = new RandomNodeSorter();
 	}
 }
