@@ -386,6 +386,8 @@ namespace Example
             this.toolStripSplitButtonSort.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.descendingToolStripMenuItem,
             this.ascendingToolStripMenuItem,
+            this.descendingNameToolStripMenuItem,
+            this.ascendingNameToolStripMenuItem,
             this.randomToolStripMenuItem,
             this.unsortedToolStripMenuItem});
             this.toolStripSplitButtonSort.Image = global::Example.Properties.Resources.notepad;
