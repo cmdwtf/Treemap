@@ -40,17 +40,16 @@ This is not an exhaustive list of differences, but noted here are some of the la
  - Arrow keys do not currently navigate the view. This is on the short list of things to implement.
 
 ## 📝 License
-cmdwtf.Treemap is [licensed](./LICENSE) under the AGPL 3.0 (SPDX-License-Identifier: AGPL-3.0-only). If you're interested in cmdwtf.Treemap under other terms, please contact the authors. cmdwtf.Treemap makes use of several open source packages. Those packages are each covered by their own copyrights and licenses, which are available via the tooling you use to restore the packages when building. As well, some portions of code are distributed under terms of other licenses, which are designated in comments. See `copyright` for more details.
+cmdwtf.Treemap is [licensed](./LICENSE) under the Zero-Clause BSD License (SPDX-License-Identifier: 0BSD). If you're interested in cmdwtf.Treemap under other terms, please contact the authors. cmdwtf.Treemap makes use of several open source packages. Those packages are each covered by their own copyrights and licenses, which are available via the tooling you use to restore the packages when building. As well, some portions of code are distributed under terms of other licenses, which are designated in comments. See `copyright` for more details.
 
 Copyright © 2021 [Chris March Dailey](https://cmd.wtf)
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted.
 
-You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ### License for Example Application
-The [Example](./Example) application is licensed under the MIT license. See it's [LICENSE](./Example/LICENSE) for more details.
+The [Example](./Example) application is licensed under the Zero-Clause BSD License (SPDX-License-Identifier: 0BSD).
 
 ### Licensed Software
 cmdwtf.Treemap makes use of several licensed portions of code, each licensed under their own terms by their authors. In particular, some of those software licenses require the following notices. The packages themselves may reference other packages, each covered by their own license.
