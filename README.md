@@ -1,4 +1,4 @@
-[![build status](https://img.shields.io/github/workflow/status/cmdwtf/Treemap/.NET%20Build%20&%20NuGet%20Publish)](https://github.com/cmdwtf/Treemap/actions/workflows/dotnet.yaml) [![nuget](https://img.shields.io/nuget/v/cmdwtf.Treemap)](https://www.nuget.org/packages/cmdwtf.Treemap) [![license: 0BSD](https://img.shields.io/badge/license-0BSD--only-green)](./LICENSE)
+[![build status](https://img.shields.io/github/workflow/status/cmdwtf/Treemap/.NET%20Build%20&%20NuGet%20Publish)](https://github.com/cmdwtf/Treemap/actions/workflows/dotnet.yaml) [![nuget](https://img.shields.io/nuget/v/cmdwtf.Treemap)](https://www.nuget.org/packages/cmdwtf.Treemap) [![license: 0BSD](https://img.shields.io/badge/license-0BSD-green)](./LICENSE)
 
 ![header](./.meta/header.png)
 
